@@ -14,3 +14,14 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
+#include "UI\interface.hpp"
+
+class CfgRespawnTemplates {
+    class ADDON {
+        onPlayerRespawn = QFUNC(init);
+    };
+
+    class Seagull {
+        onPlayerRespawn = "";
+    };
+};

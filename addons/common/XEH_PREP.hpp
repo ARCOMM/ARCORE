@@ -14,3 +14,6 @@ PREP(log);
 PREP(systemChatAdmin);
 PREP(getPlayerByName);
 PREP(resetPosition);
+PREP(paraDrop);
+PREP(randomizeEnvironment);
+PREP(fullMoonDates);

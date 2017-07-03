@@ -1,1 +1,1 @@
-#include "z\arcore\addons\blank\script_component.hpp"
+#include "\z\arcore\addons\blank\script_component.hpp"

@@ -8,7 +8,7 @@ class GVAR(Group) {
             property = QGVAR(enabled);
             control = "Checkbox";
             expression = QUOTE(_this setVariable [ARR_3(QQGVAR(enabled), _value, true)]);
-            defaultValue = 1;
+            defaultValue = 0;
         };
         class Delay {
             displayName = "Delay";
@@ -44,6 +44,7 @@ class GVAR(Group) {
             property = QGVAR(color);
             control = "MarkerColor";
             expression = QUOTE(_this setVariable [ARR_3(QQGVAR(color), _value, true)]);
+            defaultValue = 0;
         };
         class Code {
             displayName = "Code";

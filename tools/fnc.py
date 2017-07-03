@@ -4,6 +4,7 @@ import re
 import glob
 import subprocess
 import textwrap
+import shutil
 
 PREFIX = 'arcore'
 AUTHOR = 'Kingsley'
@@ -146,6 +147,21 @@ def renameFunction(addon, name, newName):
     createFunction(addon, newName, contents)
     replaceFunctionInCode(addon, name, addon, newName)
 
+def createAddon(name):
+    source = '../extras/blank'
+    destination = '../addons/{}'.format(name)
+    shutil.copytree(source, destination)
+    for dname, dirs, files in os.walk(destination):
+        for fname in files:
+            fpath = os.path.join(dname, fname)
+            with open(fpath) as f:
+                s = f.read()
+            s = s.replace("blank", name)
+            s = s.replace("Blank", name.title())
+            s = s.replace("BLANK", name.upper())
+            with open(fpath, "w") as f:
+                f.write(s)
+
 def main():
     args = sys.argv
 
@@ -163,6 +179,10 @@ def main():
 
     if "-m" in args:
         moveFunction(args[2], args[3], args[4])
+        sys.exit(2)
+
+    if "-a" in args:
+        createAddon(args[2])
         sys.exit(2)
 
 if __name__ == '__main__':
