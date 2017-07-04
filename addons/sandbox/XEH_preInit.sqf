@@ -4,6 +4,8 @@ ADDON = false;
 
 #include "XEH_PREP.hpp"
 
+GVAR(enabled) = getNumber (missionConfigFile >> "Header" >> "sandbox") == 1;
+
 if (isServer) then {
     private _spawnPos = getArray (missionConfigFile >> "CfgSandbox" >> worldName >> "startingPosition");
 
@@ -14,7 +16,7 @@ if (isServer) then {
             };
         } forEach ["respawn_west", "respawn_east", "respawn_guerrila"];
 
-        if (getNumber (missionConfigFile >> "Header" >> "sandbox") == 1) then {
+        if (SANDBOX_MODE) then {
             ["Initialize", [true]] call BIS_fnc_dynamicGroups;
 
             GVAR(arsenal) = createVehicle ["Land_PaperBox_open_full_F", _spawnPos, [], 0, "CAN_COLLIDE"];

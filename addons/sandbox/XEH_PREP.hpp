@@ -1,1 +1,2 @@
 // PREPS
+PREP(getSpawnPos);

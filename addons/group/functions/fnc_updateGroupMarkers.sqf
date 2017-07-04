@@ -16,17 +16,20 @@
 
 #include "script_component.hpp"
 
-{deleteMarkerLocal _x; false} count GVAR(groupMarkers);
+{deleteMarkerLocal _x;false} count GVAR(groupMarkers);
 
 GVAR(groupMarkers) = [];
 
 private _playerSide = playerSide;
 private _markerIndex = 0;
-private _groupsToDrawMarkers = allGroups select {side _x == _playerSide};
+private _groupsToDrawMarkers = allGroups select {
+    side _x == _playerSide &&
+    {!(_x getVariable [QEGVAR(spectator,virtual), false])}
+};
 
 {
     private _group = _x;
-    private _enabled = _group getVariable [QGVAR(enabled), true];
+    private _enabled = _group getVariable [QGVAR(enabled), false];
 
     if (_enabled) then {
         private _pos = getPos leader _group;

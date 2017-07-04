@@ -131,7 +131,7 @@ class CfgSandbox {
         camouflage = "woodland";
     };
     class VR {
-        startingPosition[] = {1770.84,1782.24,0};
+        startingPosition[] = {7520.06,7454.67,0};
         carrierPosition[] = {395.919,754.795,0};
         camouflage = "default";
     };

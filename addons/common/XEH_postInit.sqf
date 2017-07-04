@@ -27,10 +27,6 @@ enableSentences false;
 setCurrentChannel 1;
 
 if (isServer) then {
-    if ((date select 3) == 12 || {getNumber (missionConfigFile >> "Header" >> "sandbox") == 1}) then {
-        [] call FUNC(randomizeEnvironment);
-    };
-
     if (getNumber (missionConfigFile >> "CfgARCMF" >> "General" >> "freezeTime") in [1,2]) then {
         setTimeMultiplier 0.1;
     };

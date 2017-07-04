@@ -43,8 +43,12 @@ private _elementNumber = {
 };
 
 private _output = "";
-private _groups = allGroups select {side _x == _side && {count units _x > 0}};
 private _letterGroups = [];
+private _groups = allGroups select {
+    side _x == _side &&
+    {count units _x > 0} &&
+    {!(_x getVariable [QEGVAR(spectator,virtual), false])}
+};
 
 {
     private _group = _x;

@@ -61,34 +61,16 @@ switch (_type) do {
         };
     };
 
-    case "LBListSelChanged": {
-        if (count GVAR(camListUnits) > (_args select 1)) then {
-            _unit = GVAR(camListUnits) select (_args select 1);
-
-            if (!isNil "_unit") then {
-                if (typeName _unit == "GROUP") then {_unit = leader _unit};
-
-                if (GVAR(camMode) == 0 || GVAR(camMode) == 1) then {
-                    GVAR(camCurrentTarget) = _unit;
-                    if (GVAR(camToggleCamera)) then {GVAR(camCurrentTarget) switchCamera "INTERNAL"};
-                };
-
-                if (GVAR(camMode) == 3) then {
-                    private _pos = getPos _unit;
-                    private _x = _pos select 0;
-                    private _y = _pos select 1;
-                    GVAR(camFreeCamera) setPosASL [_x, _y, ((getposASL GVAR(camFreeCamera)) select 2 ) max ((getTerrainHeightASL [_x, _y]) + 1)];
-                };
-            };
-        };
-    };
-
     case "TreeSelChanged": {
         _args params ["_ctrlTree", "_path"];
         private _type = _ctrlTree tvValue _path;
         if !(_type in [0,1]) exitWith {true};
         private _key = _ctrlTree tvData _path;
-        private _unit = if (_type == 0) then {leader ((allGroups select {format ["%1_%2", side _x, groupID _x] == _key}) param [0, grpNull])} else {(call compile _key)};
+        private _unit = if (_type == 0) then {
+            leader ((allGroups select {format ["%1_%2", side _x, groupID _x] == _key}) param [0, grpNull])
+        } else {
+            _key call BIS_fnc_objectFromNetId
+        };
 
         if (GVAR(camMode) == 0 || GVAR(camMode) == 1) then {
             GVAR(camCurrentTarget) = _unit;

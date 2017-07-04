@@ -17,3 +17,5 @@ PREP(resetPosition);
 PREP(paraDrop);
 PREP(randomizeEnvironment);
 PREP(fullMoonDates);
+PREP(inBuilding);
+PREP(roundToN);

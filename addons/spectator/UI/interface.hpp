@@ -78,7 +78,7 @@ class GVAR(Dialog) {
     movingEnable = 0;
     onKeyDown = QUOTE([ARR_2('KeyDown', _this)] call FUNC(handleInterface));
     onKeyUp = QUOTE([ARR_2('KeyUp', _this)] call FUNC(handleInterface));
-    onUnload = QUOTE(spawn FUNC(unload));
+    onUnload = QUOTE([] spawn FUNC(unload));
 
     class ControlsBackground {
         class MouseHandler: GVAR(ControlsGroup) {
