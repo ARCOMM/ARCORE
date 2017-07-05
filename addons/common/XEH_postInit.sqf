@@ -4,7 +4,7 @@
     ["common", "rp"],
     ["common", "heal"],
     ["common", "whisper"],
-    ["common", "spec"]
+    ["common", "end", "admin"]
 ];
 
 EXIT_IF_NOT_ARCMF;

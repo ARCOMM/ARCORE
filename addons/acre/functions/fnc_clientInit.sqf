@@ -73,13 +73,13 @@ switch (side _unit) do {
 };
 
 [{
-    (player getVariable [QGVAR(done), false]) &&
+    (player getVariable [QEGVAR(loadout,done), false]) &&
     !("ItemRadio" in (items player + assignedItems player)) &&
     call acre_api_fnc_isInitialized
 }, {
     params ["_unit"];
 
-    private _typeOfUnit = _unit getVariable [QGVAR(loadout), "NIL"];
+    private _typeOfUnit = toLower (_unit getVariable [QEGVAR(loadout,loadout), "NIL"]);
     {_unit removeItem _x} forEach (call acre_api_fnc_getCurrentRadioList);
 
     _AN_PRC_343 = switch (side _unit) do {
@@ -118,6 +118,7 @@ switch (side _unit) do {
     };
 
     #define ADD_RADIO(ARR, RADIO)\
+        ARR = ARR apply {toLower _x};\
         if (count (ARR select {_x == _typeOfUnit}) == 1 || (count ARR == 1 && toLower (ARR select 0) == "all")) then {\
             _unit addItem RADIO;\
         } else {\

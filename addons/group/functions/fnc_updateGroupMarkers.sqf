@@ -24,6 +24,7 @@ private _playerSide = playerSide;
 private _markerIndex = 0;
 private _groupsToDrawMarkers = allGroups select {
     side _x == _playerSide &&
+    {count units _x > 0} &&
     {!(_x getVariable [QEGVAR(spectator,virtual), false])}
 };
 

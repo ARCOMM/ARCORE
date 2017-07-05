@@ -12,5 +12,5 @@ private _groupEnabled = [format ["markers.%1.enableGroupMarkers", _faction], tru
 
 if (_groupEnabled) then {
     [FUNC(updateGroupMarkers), 1, []] call CBA_fnc_addPerFrameHandler;
-    [FUNC(updateFireteamMarkers), 0.2, []] call CBA_fnc_addPerFrameHandler;
+    [FUNC(updateFireteamMarkers), 1, []] call CBA_fnc_addPerFrameHandler;
 };
