@@ -58,7 +58,7 @@ if (_fillingRadius == -1) then {
     _buildings = nearestObjects [_startingPos, _buildingTypes, 50];
 } else {
     _buildings = nearestObjects [_startingPos, _buildingTypes, _fillingRadius];
-    _buildings = _buildings call ARC_fnc_arrayShuffle;
+    _buildings = _buildings call CFUNC(arrayShuffle);
 };
 
 if (count _buildings == 0) exitWith {

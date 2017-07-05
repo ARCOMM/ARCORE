@@ -1,6 +1,7 @@
 class GVAR(Loadout) {
     displayName = EDEN_TITLE(Loadout);
     collapsed = 0;
+
     class Attributes {
         class Role {
             displayName = "Role";

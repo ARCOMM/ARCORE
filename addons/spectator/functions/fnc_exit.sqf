@@ -29,7 +29,10 @@ closeDialog 1;
 [GVAR(pfhCamera)] call CBA_fnc_removePerFrameHandler;
 [GVAR(pfhTags)] call CBA_fnc_removePerFrameHandler;
 
-(call FUNC(getCamera)) cameraEffect ["terminate", "back"];
+{
+    _x cameraEffect ["terminate", "back"];
+    camDestroy _x;
+} forEach [GVAR(camCamera), cameraOn, GVAR(camFreeCamera), GVAR(camFakeCamera)];
 
 GVAR(isSpectating) = false;
 

@@ -13,6 +13,17 @@ class Cfg3DEN {
                         expression = QUOTE(_this setVariable [ARR_3(QQGVAR(ElementName), _value, true)]);
                         defaultValue = "nil";
                     };
+
+                    class RosterOrder {
+                        displayName = "Order";
+                        tooltip = "Order of the element in the platoon roster.";
+                        property = QGVAR(RosterOrder);
+                        control = "EditShort";
+                        expression = QUOTE(_this setVariable [ARR_3(QQGVAR(RosterOrder), _value, true)]);
+                        defaultValue = "100";
+                        validate = "number";
+                        typeName = "NUMBER";
+                    };
                 };
             };
         };

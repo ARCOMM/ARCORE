@@ -77,7 +77,7 @@ switch (_type) do {
             if (GVAR(camToggleCamera)) then {GVAR(camCurrentTarget) switchCamera "INTERNAL"};
         };
 
-        if (GVAR(camMode) == 3) then {
+        if (GVAR(camMode) == 2) then {
             private _pos = getPos _unit;
             private _x = _pos select 0;
             private _y = _pos select 1;
@@ -196,7 +196,7 @@ switch (_type) do {
                     GVAR(camAngleY) = 10;
                     [GVAR(camFreeCamera), GVAR(camAngleY), 0] call BIS_fnc_setPitchBank;
                     GVAR(camFreeCamera) cameraEffect ["internal", "BACK"];
-                    GVAR(camMode) = 3;
+                    GVAR(camMode) = 2;
                     GVAR(camFreeCamera) setPosASL (getPosASL GVAR(camCamera));
                     cameraEffectEnableHUD true;
                     showCinemaBorder false;

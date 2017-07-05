@@ -54,7 +54,7 @@ if (GVAR(camMode) == 1) then {
     };
 };
 
-if (GVAR(camMode) == 3) then {
+if (GVAR(camMode) == 2) then {
     GVAR(camFreeCamera) camSetFov GVAR(camFovZoom);
 
     private _delta = (time - GVAR(camTimestamp)) * 10;

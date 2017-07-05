@@ -19,3 +19,5 @@ PREP(randomizeEnvironment);
 PREP(fullMoonDates);
 PREP(inBuilding);
 PREP(roundToN);
+PREP(arrayShuffle);
+PREP(configOption);

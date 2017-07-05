@@ -22,15 +22,25 @@ params [
     ["_role", "", [""]]
 ];
 
+if (isNull _unit) exitWith {};
 if (_role == "") exitWith {};
 
 if (!local _unit) exitWith {
     _this remoteExecCall [QFUNC(assignLoadout), _unit];
 };
 
-private _faction = [_unit] call CFUNC(getFaction);
-private _script = format ["loadouts\%1\%2.sqf", _faction, _role];
-private _content = preprocessFileLineNumbers _script;
+private _content = "";
+
+if (_role find ":" != -1) then {
+    private _parts = _role splitString ":";
+    _parts params ["_dir", "_file"];
+    private _script = format ["loadouts\%1\%2.sqf", _dir, _file];
+    _content = preprocessFileLineNumbers _script;
+} else {
+    private _faction = [_unit] call CFUNC(getFaction);
+    private _script = format ["loadouts\%1\%2.sqf", _faction, _role];
+    _content = preprocessFileLineNumbers _script;
+};
 
 _unit call compile format ["this = _this; %1", _content];
 

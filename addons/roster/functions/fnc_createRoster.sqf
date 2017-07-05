@@ -20,12 +20,6 @@ params [["_side", sideUnknown, [sideUnknown]]];
 
 if (_side == sideUnknown) exitWith {};
 
-//--- How this works
-// Makes an array of letter groups containing the a common group initial (first letter) and an array of groups
-// Sorts the letter groups by alphabet ascending
-// For each letter group is will sort the groups by their element number and then the leaders rank ID
-// Lastly it appends it to the output
-
 private _elementNumber = {
     params [["_callsign", "", [""]]];
 
@@ -38,43 +32,43 @@ private _elementNumber = {
 
     if (_numbers isEqualTo []) then {_numbers = [-1]};
 
-    diag_log format ["Input: %1, Output: %2", _callsign, (_numbers joinString "")];
     (_numbers joinString "")
 };
 
-private _output = "";
-private _letterGroups = [];
+private _output = [];
+private _elements = [];
 private _groups = allGroups select {
     side _x == _side &&
     {count units _x > 0} &&
+    {(_x getVariable [QGVAR(ElementName), ""]) != ""} &&
     {!(_x getVariable [QEGVAR(spectator,virtual), false])}
 };
 
 {
     private _group = _x;
-    private _text = _group getVariable [QGVAR(ElementName), _group getVariable [QEGVAR(group,text), groupId _group]];
-    private _initial = _text select [0,1];
+    private _text = _group getVariable [QGVAR(ElementName), ""];
+    private _order = _group getVariable [QGVAR(RosterOrder), 100];
     private _index = -1;
 
     {
-        _x params ["_letter", "_lGroups"];
+        _x params ["_order", "_name", "_groups"];
 
-        if (_initial == _letter) exitWith {
+        if (_text == _name) exitWith {
             _index = _forEachIndex;
-            _lGroups pushBack _group;
-            _letterGroups set [_forEachIndex, [_letter, _lGroups]];
+            _groups pushBack _group;
+            _elements set [_forEachIndex, [_order, _name, _groups]];
         };
-    } forEach _letterGroups;
+    } forEach _elements;
 
     if (_index == -1) then {
-        _letterGroups pushBack [_initial, [_group]];
+        _elements pushBack [_order, _text, [_group]];
     };
 } forEach _groups;
 
-_letterGroups sort true;
+_elements sort true;
 
 {
-    _x params ["_letter", "_groups"];
+    _x params ["_order", "_name", "_groups"];
 
     _sorted = _groups apply {[
         [_x getVariable [QEGVAR(group,text), groupId _x]] call _elementNumber,
@@ -85,12 +79,10 @@ _letterGroups sort true;
     _sorted sort false;
     reverse _sorted;
 
-    private _elementName = (_groups param [0, grpNull]) getVariable [QGVAR(ElementName), ""];
-    private _elementText = [format ["<font size='14' face='PuristaBold' color='#FFFFFF'>%1</font><br/>", toUpper _elementName], ""] select (_elementName == "");
+    private _elementText = format ["<font size='14' face='PuristaBold' color='#FFFFFF'>%1</font><br/>", toUpper _name];
 
-    _output = format [
-        "%1<br/>%2",
-        _output,
+    _output pushBack format [
+        "<br/>%1",
         _elementText
     ];
 
@@ -101,9 +93,8 @@ _letterGroups sort true;
         private _color = _group getVariable [QEGVAR(group,color), format ["Color%1", side _group]];
         private _colorHex = [_color] call CFUNC(markerColorToHex);
 
-        _output = format [
-            "%1<font size='13' face='PuristaSemibold' color='#FFFFFF'>%2</font>  ",
-            _output,
+        _output pushBack format [
+            "<font size='13' face='PuristaSemibold' color='#FFFFFF'>%1</font>  ",
             _callsign
         ];
 
@@ -130,8 +121,8 @@ _letterGroups sort true;
             ];
         } forEach _units;
 
-        _output = format ["%1%2", _output, _unitsStr];
+        _output pushBack format ["%1", _unitsStr];
     } forEach _sorted;
-} forEach _letterGroups;
+} forEach _elements;
 
-player createDiaryRecord ["diary", ["Platoon Roster", _output]];
+player createDiaryRecord ["diary", ["Platoon Roster", _output joinString ""]];

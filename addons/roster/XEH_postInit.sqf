@@ -2,4 +2,6 @@
 
 EXIT_IF_NOT_ARCMF;
 
-[side group player] call FUNC(createRoster);
+[{!isNil QEGVAR(group,hasRun) && {EGVAR(group,hasRun)}}, {
+    [side group player] call FUNC(createRoster);
+}] call CBA_fnc_waitUntilAndExecute;

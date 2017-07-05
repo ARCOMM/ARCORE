@@ -8,7 +8,7 @@ EXIT_IF_NOT_ARCMF;
 ["group", "groupcolor"] call CFUNC(registerChatCommand);
 
 private _faction = [playerSide] call CFUNC(getFaction);
-private _groupEnabled = getNumber (missionConfigFile >> "CfgARCMF" >> "Markers" >> _faction >> "enableGroupMarkers") == 1;
+private _groupEnabled = [format ["markers.%1.enableGroupMarkers", _faction], true] call CFUNC(configOption);
 
 if (_groupEnabled) then {
     [FUNC(updateGroupMarkers), 1, []] call CBA_fnc_addPerFrameHandler;

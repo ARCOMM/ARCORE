@@ -56,7 +56,7 @@ switch (_button) do {
             }] call FUNC(exit);
         } else {
             player setVariable [QGVAR(rejoin), true, true];
-            hint "Waiting for admin to trigger reinforcement wave.";
+            hint "Waiting for admin to trigger reinforcement wave. Make sure you are NOT in first-person mode!";
         };
     };
 

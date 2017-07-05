@@ -30,18 +30,6 @@ private _displayDialog = (findDisplay IDC_DIALOG);
 ctrlSetText [IDC_TAGSNAMEBUTTON, GVAR(camTagsNames) select GVAR(camTagsButton)];
 ctrlSetText [IDC_TRACERSBUTTON, GVAR(camTracersNames) select GVAR(camTracersButton)];
 
-GVAR(camMenuButtonX) = 0 * safeZoneW + safeZoneX;
-
-{ // Auto-size controls
-    ((findDisplay IDC_DIALOG) displayCtrl _x) ctrlSetPosition [
-        GVAR(camMenuButtonX),
-        (0 * safeZoneH + safeZoneY),
-        GVAR(camMenuButtonWidth),
-        (0.03 * safeZoneH)
-    ];
-
-    ((findDisplay IDC_DIALOG) displayCtrl _x) ctrlCommit 0;
-    GVAR(camMenuButtonX) = GVAR(camMenuButtonX) + GVAR(camMenuButtonWidth);
-} forEach GVAR(camMenuControls);
+call FUNC(autoSizeControls);
 
 call FUNC(updateUnitList);

@@ -67,3 +67,8 @@ private _groupsToDrawMarkers = allGroups select {
 
     false
 } count _groupsToDrawMarkers;
+
+if (!GVAR(hasRun)) then {
+    GVAR(hasRun) = true;
+    publicVariable QGVAR(hasRun);
+};

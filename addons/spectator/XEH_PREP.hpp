@@ -10,3 +10,5 @@ PREP(handleCamera);
 PREP(drawTags);
 PREP(exit);
 PREP(getCamera);
+PREP(setupEnvironment);
+PREP(autoSizeControls);

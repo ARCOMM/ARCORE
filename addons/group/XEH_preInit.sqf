@@ -6,5 +6,6 @@ ADDON = false;
 
 GVAR(groupMarkers) = [];
 GVAR(fireteamMarkers) = [];
+GVAR(hasRun) = false;
 
 ADDON = true;

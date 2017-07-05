@@ -32,7 +32,8 @@ tvClear _ctrlTree;
 
     {
         private _group = _x;
-        private _groupPath = _ctrlTree tvAdd [[_sidePath], toUpper (groupID _group)];
+        private _callsign = _group getVariable [QEGVAR(group,text), toUpper (groupID _group)];
+        private _groupPath = _ctrlTree tvAdd [[_sidePath], _callsign];
         private _groupUnits = (units _group) select {alive _x && {!(_x getVariable [QGVAR(virtual), false])}};
         private _isPlayerGroup = {isPlayer _x} count _groupUnits > 0;
 

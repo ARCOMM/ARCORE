@@ -25,6 +25,9 @@ _this spawn {
         ["_forced", false]
     ];
 
+    // Setup the environment variables
+    call FUNC(setupEnvironment);
+
     if (isNull _unit) then {_unit = cameraOn};
     if (typeOf _unit != "seagull" && !_forced || !hasInterface) exitWith {};
     waituntil {missionNamespace getVariable ["BIS_fnc_feedback_allowDeathScreen", true] || isNull _oldUnit || _forced};
@@ -99,19 +102,7 @@ _this spawn {
 
     createDialog QGVAR(Dialog);
 
-    GVAR(camMenuButtonX) = 0 * safeZoneW + safeZoneX;
-
-    { // Auto-size controls
-        ((findDisplay IDC_DIALOG) displayCtrl _x) ctrlSetPosition [
-            GVAR(camMenuButtonX),
-            (0 * safeZoneH + safeZoneY),
-            GVAR(camMenuButtonWidth),
-            (0.03 * safeZoneH)
-        ];
-
-        ((findDisplay IDC_DIALOG) displayCtrl _x) ctrlCommit 0;
-        GVAR(camMenuButtonX) = GVAR(camMenuButtonX) + GVAR(camMenuButtonWidth);
-    } forEach GVAR(camMenuControls);
+    call FUNC(autoSizeControls);
 
     private _camStartPos = getPos _oldUnit;
     _camStartPos set [2, 3];

@@ -9,4 +9,4 @@ tooltip = "ACE3 Project Template";
 tooltipOwned = "ACE3 Project Template Owned";
 overview = "Advanced Combat Environment 3 Project Template";
 author = "ACE3 Team";
-overviewPicture = "logo_ace3_ca.paa";
+overviewPicture = "logo_arcore_ca.paa";
