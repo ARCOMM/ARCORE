@@ -3,10 +3,10 @@
 #define CFUNC(ARG0) EFUNC(common,ARG0)
 #define QCFUNC(ARG0) QUOTE(CFUNC(ARG0))
 
-#define EXIT_IF_NOT_ARCMF if !([] call CFUNC(addonActive)) exitWith {}
+#define EXIT_IF_NOT_ARCMF if !(call CFUNC(addonActive)) exitWith {}
 
-#define EDEN_TITLE(STR) ARCORE_TAG## ##STR
-#define EDEN_CHECKBOX_IF(ARG0) QUOTE(if (_value) then {ARG0};)
+#define EDEN_TITLE(STR) QUOTE(STR)
+#define EDEN_CHECKBOX_IF(ARG0) QUOTE(if (_value) then {(ARG0)};)
 
 #define QADDON QUOTE(ADDON)
 #define QQADDON QUOTE(QADDON)

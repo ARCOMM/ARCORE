@@ -17,10 +17,10 @@ class GVAR(Button) {
     offsetY = 0;
     shadow = 0;
     sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1.005)";
-    soundClick[] = {"\A3\ui_f\data\sound\GVAR(Button)\soundClick",0.09,1};
-    soundEnter[] = {"\A3\ui_f\data\sound\GVAR(Button)\soundEnter",0.09,1};
-    soundEscape[] = {"\A3\ui_f\data\sound\GVAR(Button)\soundEscape",0.09,1};
-    soundPush[] = {"\A3\ui_f\data\sound\GVAR(Button)\soundPush",0.09,1};
+    soundClick[] = {"\A3\ui_f\data\sound\rscbutton\soundClick",0.09,1};
+    soundEnter[] = {"\A3\ui_f\data\sound\rscbutton\soundEnter",0.09,1};
+    soundEscape[] = {"\A3\ui_f\data\sound\rscbutton\soundEscape",0.09,1};
+    soundPush[] = {"\A3\ui_f\data\sound\rscbutton\soundPush",0.09,1};
     style = 0x02 + 160;
     text = "";
     type = 1;

@@ -30,8 +30,8 @@ class CfgMarkers {
     MARKER(Rifleman, "\A3\ui_f\data\map\vehicleicons\iconMan_ca.paa");
     MARKER(Medic, "\A3\ui_f\data\map\vehicleicons\iconManMedic_ca.paa");
     MARKER(Engineer, "\A3\ui_f\data\map\vehicleicons\iconManEngineer_ca.paa");
-    MARKER(Explosive, "\A3\ui_f\data\map\vehicleicons\iconManExplosive.paa");
-    MARKER(Recon, "\A3\ui_f\data\map\vehicleicons\iconManRecon.paa");
+    MARKER(Explosive, "\A3\ui_f\data\map\vehicleicons\iconManExplosive_ca.paa");
+    MARKER(Recon, "\A3\ui_f\data\map\vehicleicons\iconManRecon_ca.paa");
     MARKER(AT, "\A3\ui_f\data\map\vehicleicons\iconManAT_ca.paa");
     MARKER(Leader, "\A3\ui_f\data\map\vehicleicons\iconManLeader_ca.paa");
     MARKER(MG, "\A3\ui_f\data\map\vehicleicons\iconManMG_ca.paa");

@@ -4,6 +4,10 @@ ADDON = false;
 
 #include "XEH_PREP.hpp"
 
+ADDON = true;
+
+EXIT_IF_NOT_ARCMF;
+
 GVAR(enabled) = getNumber (missionConfigFile >> "Header" >> "sandbox") == 1;
 
 if (isServer) then {
@@ -25,5 +29,3 @@ if (isServer) then {
         };
     };
 };
-
-ADDON = true;
