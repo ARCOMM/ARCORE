@@ -60,3 +60,7 @@ GVAR(briefingStageWatcher) = [{
         [] call FUNC(endBriefingStage);
     };
 }, 0, []] call CBA_fnc_addPerFrameHandler;
+
+[QGVAR(started)] call CBA_fnc_globalEvent;
+[QGVAR(startedJIP)] call CBA_fnc_globalEventJIP;
+[QGVAR(startedServer)] call CBA_fnc_serverEvent;

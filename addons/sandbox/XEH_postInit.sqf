@@ -7,8 +7,7 @@ if (hasInterface) then {
         if (SANDBOX_MODE) then {
             ["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
 
-            _startPos = call FUNC(getSpawnPos);
-            player setPos _startPos;
+            player setPos ([true] call FUNC(getSpawnPos));
         };
     };
 };

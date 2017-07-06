@@ -18,6 +18,8 @@ class Extended_PostInit_EventHandlers {
 
 class Extended_Init_Eventhandlers {
     class CAManBase {
-        ADDON = QUOTE(_this call FUNC(assignLoadout));
+        class ADDON {
+            init = QUOTE(_this call COMPILE_FILE(XEH_unitInit));
+        };
     };
 };

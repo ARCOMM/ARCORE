@@ -8,10 +8,19 @@ class GVAR(Garrison) {
             tooltip = "Garrison all units in this group in nearby buildings.";
             property = QGVAR(GarrisonEnabled);
             control = "Checkbox";
-            // expression = QUOTE([ARR_2(_this, _value)] call FUNC(edenGarrison));
-            expression = QUOTE(if (_value) then {[ARR_3(leader _this, nil, _this)] call FUNC(garrison)};);
+            expression = QUOTE(_this setVariable [ARR_3(QQGVAR(GarrisonEnabled), _value, true)]);
             defaultValue = 0;
-            typeName = "BOOL";
+        };
+
+        class Radius {
+            displayName = "Radius";
+            tooltip = "Radius in meters of the garrison range.";
+            property = QGVAR(GarrisonRadius);
+            control = "EditShort";
+            expression = QUOTE(_this setVariable [ARR_3(QQGVAR(GarrisonRadius), _value, true)]);
+            defaultValue = 250;
+            validate = "number";
+            typeName = "NUMBER";
         };
     };
 };

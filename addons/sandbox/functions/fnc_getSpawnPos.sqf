@@ -16,6 +16,12 @@
 
 #include "script_component.hpp"
 
-private _startPos = [getArray (missionConfigFile >> "CfgSandbox" >> worldName >> "startingPosition"), 10] call CBA_fnc_randPos;
+params [["_rand", false, [false]]];
 
-_startPos
+private _pos = getArray (configFile >> "CfgSandbox" >> worldName >> "startingPosition");
+
+if (_rand) exitWith {
+    ([_pos, 10] call CBA_fnc_randPos)
+};
+
+_pos

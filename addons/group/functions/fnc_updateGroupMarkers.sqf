@@ -42,6 +42,10 @@ private _groupsToDrawMarkers = allGroups select {
         private _markerType = [_x] call CFUNC(getMarkerType);
         private _adjustedPos = _group getVariable [QGVAR(previousPos), _pos];
 
+        if (_delay < 2) then {
+            _delay = 2;
+        };
+
         _group setGroupIdGlobal [_text, "GroupColor0"];
 
         if ((time - _lastUpdated) >= _delay) then {

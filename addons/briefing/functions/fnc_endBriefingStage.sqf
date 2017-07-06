@@ -33,6 +33,9 @@ GVAR(timerEnd) = 5;
         "Weapons are live!" remoteExecCall ["hintSilent", 0];
         {[_x, false] remoteExecCall [QCFUNC(setSafety), _x]} forEach allPlayers;
         [_handler] call CBA_fnc_removePerFrameHandler;
+        [QGVAR(ended)] call CBA_fnc_globalEvent;
+        [QGVAR(endedJIP)] call CBA_fnc_globalEventJIP;
+        [QGVAR(endedServer)] call CBA_fnc_serverEvent;
     };
 
     format [

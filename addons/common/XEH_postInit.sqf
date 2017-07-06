@@ -29,6 +29,10 @@ setCurrentChannel 1;
 if (isServer) then {
     if (getNumber (missionConfigFile >> "CfgARCMF" >> "General" >> "freezeTime") in [1,2]) then {
         setTimeMultiplier 0.1;
+
+        [QEGVAR(briefing,endedServer), {
+            setTimeMultiplier 1;
+        }] call CBA_fnc_addEventHandler;
     };
 
     if (!isNil "acex_fortify_fnc_registerObjects") then {
@@ -48,4 +52,16 @@ if (isServer) then {
             ["CIVILIAN", civilian]
         ];
     };
+};
+
+if (!isNil "acex_fortify_fnc_registerObjects") then {
+    acex_fortify_mode = true;
+
+    [QEGVAR(briefing,started), {
+        acex_fortify_mode = true;
+    }] call CBA_fnc_addEventHandler;
+
+    [QEGVAR(briefing,ended), {
+        acex_fortify_mode = false;
+    }] call CBA_fnc_addEventHandler;
 };

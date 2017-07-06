@@ -11,7 +11,7 @@ EXIT_IF_NOT_ARCMF;
 GVAR(enabled) = getNumber (missionConfigFile >> "Header" >> "sandbox") == 1;
 
 if (isServer) then {
-    private _spawnPos = getArray (missionConfigFile >> "CfgSandbox" >> worldName >> "startingPosition");
+    private _spawnPos = call FUNC(getSpawnPos);
 
     if (getNumber (missionConfigFile >> "respawn") == 3) then {
         {
