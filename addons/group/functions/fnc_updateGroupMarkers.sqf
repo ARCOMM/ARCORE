@@ -22,8 +22,18 @@ GVAR(groupMarkers) = [];
 
 private _playerSide = playerSide;
 private _markerIndex = 0;
+private _sides = [west, east, resistance, civilian];
 private _groupsToDrawMarkers = allGroups select {
-    side _x == _playerSide &&
+    private _sideFlags = [
+        _x getVariable [QGVAR(ShowBLUFOR), side _x == west],
+        _x getVariable [QGVAR(ShowOPFOR), side _x == east],
+        _x getVariable [QGVAR(ShowINDFOR), side _x == resistance],
+        _x getVariable [QGVAR(ShowCIV), side _x == civilian]
+    ];
+
+    private _index = _sides find _playerSide;
+
+    ([false, _sideFlags select _index] select (_index > -1)) &&
     {count units _x > 0} &&
     {!(_x getVariable [QEGVAR(spectator,virtual), false])}
 };
@@ -48,7 +58,7 @@ private _groupsToDrawMarkers = allGroups select {
 
         _group setGroupIdGlobal [_text, "GroupColor0"];
 
-        if ((time - _lastUpdated) >= _delay) then {
+        if ((time - _lastUpdated) >= _delay || !GVAR(hasRun)) then {
             _adjustedPos = if (_accuracy > 0) then {[leader _group, _accuracy] call CBA_fnc_randPos} else {_pos};
             _group setVariable [QGVAR(lastUpdated), time, true];
             _group setVariable [QGVAR(previousPos), _adjustedPos, true];
@@ -64,7 +74,12 @@ private _groupsToDrawMarkers = allGroups select {
         _marker setMarkerColorLocal _color;
         _marker setMarkerTextLocal _text;
         _marker setMarkerSizeLocal [0.88, 0.88];
-        _marker call compile (_group getVariable [QGVAR(code), ""]);
+
+        private _code = _group getVariable [QGVAR(code), ""];
+
+        if (_code != "") then {
+            _marker call compile _code;
+        };
 
         GVAR(groupMarkers) pushBack _marker;
         INC(_markerIndex);

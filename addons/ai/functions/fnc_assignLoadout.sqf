@@ -31,43 +31,47 @@ private _prioritizeTracerMags = getNumber (missionConfigFile >> "CfgARCMF" >> "A
 private _removeMedicalItems = getNumber (missionConfigFile >> "CfgARCMF" >> "AI" >> "Gear" >> _faction >> "removeMedicalItems") == 1;
 private _removeNightVision = getNumber (missionConfigFile >> "CfgARCMF" >> "AI" >> "Gear" >> _faction >> "removeNightVision") == 1;
 
+removeAllWeapons _unit;
+removeAllItems _unit;
+removeAllAssignedItems _unit;
+removeUniform _unit;
+removeVest _unit;
+removeBackpack _unit;
+removeHeadgear _unit;
+removeGoggles _unit;
+
 private _rifleClass = [_faction, "rifles"] call FUNC(selectItem);
-private _hasRemovedWeapons = false;
-
-if (count _rifleClass > 0) then {
-    removeAllWeapons _unit;
-    _hasRemovedWeapons = true;
-};
-
-private _uniformItems = uniformItems _unit;
-private _vestItems = vestItems _unit;
-private _backpackItems = backpackItems _unit;
+private _needsBackpack = false;
+private _addLauncher = false;
 
 private _uniformClass = [_faction, "uniforms"] call FUNC(selectItem);
 if (count _uniformClass > 0) then {
-    removeUniform _unit;
     _unit forceAddUniform (_uniformClass select 0);
-    {_unit addItemToUniform _x} forEach _uniformItems;
 };
 
 private _vestClass = [_faction, "vests"] call FUNC(selectItem);
 if (count _vestClass > 0) then {
-    removeVest _unit;
     _unit addVest (_vestClass select 0);
-    {_unit addItemToVest _x} forEach _vestItems;
 };
 
-private _backpackClass = [_faction, "backpacks"] call FUNC(selectItem);
+private _launcherClass = [_faction, "launchers"] call FUNC(selectItem);
+if (count _launcherClass > 0) then {
+    _needsBackpack = true;
+    _addLauncher = true;
+};
+
+private _backpackClass = [_faction, "backpacks", _needsBackpack] call FUNC(selectItem);
 if (count _backpackClass > 0) then {
-    removeBackpack _unit;
     _unit addBackpack (_backpackClass select 0);
-    {_unit addItemToBackpack _x} forEach _backpackItems;
+};
+
+if (_addLauncher) then {
+    [_unit, (_launcherClass select 0), 2] call BIS_fnc_addWeapon;
 };
 
 private _hasHeadgear = false;
 private _headgearClass = [_faction, "headgear"] call FUNC(selectItem);
 if (count _headgearClass > 0) then {
-    removeHeadgear _unit;
     _unit addHeadgear (_headgearClass select 0);
     _hasHeadgear = true;
 };
@@ -75,7 +79,6 @@ if (count _headgearClass > 0) then {
 if (!_hasHeadgear) then {
     private _goggleClass = [_faction, "goggles"] call FUNC(selectItem);
     if (count _goggleClass > 0) then {
-        removeGoggles _unit;
         _unit addGoggles (_goggleClass select 0);
     };
 };
@@ -97,22 +100,7 @@ private _whileAddMagazine = {
     };
 };
 
-private _launcherClass = [_faction, "launchers"] call FUNC(selectItem);
-if (count _launcherClass > 0) then {
-    if (!_hasRemovedWeapons) then {
-        removeAllWeapons _unit;
-        _hasRemovedWeapons = true;
-    };
-
-    [_unit, (_launcherClass select 0), 2] call BIS_fnc_addWeapon;
-};
-
 if (count _rifleClass > 0) then {
-    if (!_hasRemovedWeapons) then {
-        removeAllWeapons _unit;
-        _hasRemovedWeapons = true;
-    };
-
     private _magazines = getArray (configFile >> "CfgWeapons" >> (_rifleClass select 0) >> "magazines");
 
     if (count _magazines > 0) then {

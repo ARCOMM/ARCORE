@@ -16,12 +16,9 @@
 
 #include "script_component.hpp"
 
-player createDiarySubject ["ARCMF", "ARCMF"];
+private _isAdmin = [player] call EFUNC(admin,isAdmin);
 
-//--- TODO
-// Gear
-// Groups
-// Spectator
+player createDiarySubject ["ARCMF", "ARCMF"];
 
 //--- Missing Radios
 player createDiaryRecord ["ARCMF", [
@@ -37,5 +34,18 @@ player createDiaryRecord ["ARCMF", [
 <font size='14'><execute expression=""[player, 'ACRE_PRC77'] call " + QEFUNC(acre,addRadio) + """>Add AN/PRC-77</execute></font><br/>\
     "
 ]];
+
+//--- Admin
+if (_isAdmin) then {
+    player createDiaryRecord ["ARCMF", [
+        "Admin",
+        "\
+<br/>
+<font size='15' face='PuristaBold'>Briefing Stage</font><br/>\
+<font size='14'><execute expression=""[0] remoteExecCall ['" + QFUNC(startBriefingStage) + "', 2]"">Start</execute></font> | \
+<font size='14'><execute expression=""[] remoteExecCall ['" + QFUNC(endBriefingStage) + "', 2]"">Stop</execute></font><br/>\
+        "
+    ]];
+};
 
 player createDiaryRecord ["ARCMF", ["Version", format ["<br/><font size='15' face='PuristaBold'>%1</font>", QUOTE(VERSION)]]];

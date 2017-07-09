@@ -46,6 +46,35 @@ class GVAR(Group) {
             expression = QUOTE(_this setVariable [ARR_3(QQGVAR(color), _value, true)]);
             defaultValue = 0;
         };
+        class ShowBLUFOR {
+            displayName = "Show to BLUFOR";
+            tooltip = "Shows the marker to the BLUFOR side.";
+            property = QGVAR(ShowBLUFOR);
+            control = "Checkbox";
+            expression = QUOTE(_this setVariable [ARR_3(QQGVAR(ShowBLUFOR), _value, true)]);
+            defaultValue = "side _this == west";
+        };
+        class ShowOPFOR: ShowBLUFOR {
+            displayName = "Show to OPFOR";
+            tooltip = "Shows the marker to the OPFOR side.";
+            property = QGVAR(ShowOPFOR);
+            expression = QUOTE(_this setVariable [ARR_3(QQGVAR(ShowOPFOR), _value, true)]);
+            defaultValue = "side _this == east";
+        };
+        class ShowINDFOR: ShowBLUFOR {
+            displayName = "Show to INDFOR";
+            tooltip = "Shows the marker to the INDFOR side.";
+            property = QGVAR(ShowINDFOR);
+            expression = QUOTE(_this setVariable [ARR_3(QQGVAR(ShowINDFOR), _value, true)]);
+            defaultValue = "side _this == resistance";
+        };
+        class ShowCIV: ShowBLUFOR {
+            displayName = "Show to CIVILIAN";
+            tooltip = "Shows the marker to the CIVILIAN side.";
+            property = QGVAR(ShowCIV);
+            expression = QUOTE(_this setVariable [ARR_3(QQGVAR(ShowCIV), _value, true)]);
+            defaultValue = "side _this == civilian";
+        };
         class Code {
             displayName = "Code";
             tooltip = "Apply code to this group's marker. Passed marker is stored in _this. Always use the local variant of the marker commands.";

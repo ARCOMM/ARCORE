@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"arcore_common"};
+        requiredAddons[] = {"arcore_common", "acre_api"};
         author = "";
         authors[] = {"Kingsley"};
         VERSION_CONFIG;
@@ -14,3 +14,4 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
+#include "CfgWeapons.hpp"

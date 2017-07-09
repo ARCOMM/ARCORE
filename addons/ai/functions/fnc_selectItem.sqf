@@ -19,12 +19,15 @@
 
 params [
     ["_faction", "blufor"],
-    ["_category", "uniforms"]
+    ["_category", "uniforms"],
+    ["_fixedProb", false, [false]]
 ];
 
 private _items = getArray (missionConfigFile >> "CfgARCMF" >> "AI" >> "Gear" >> _faction >> _category);
 
 if (_items isEqualTo []) exitWith {[]};
+
+if (_fixedProb) exitWith {selectRandom _items};
 
 private _itemarr = [];
 private _result = [];

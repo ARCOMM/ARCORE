@@ -2,6 +2,8 @@
 
 EXIT_IF_NOT_ARCMF;
 
+["briefing", "ss"] call CFUNC(registerChatCommand);
+
 //--- Briefing Diary Records
 [side group player] call FUNC(createBriefing);
 [] call FUNC(createFrameworkBriefing);
