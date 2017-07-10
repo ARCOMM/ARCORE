@@ -13,4 +13,5 @@ class CfgPatches {
 };
 
 #include "CfgEventHandlers.hpp"
+#include "CfgAttributes.hpp"
 #include "CfgEden.hpp"

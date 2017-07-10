@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"arcore_common", "mars_attributes", "mars_clientmenu"};
+        requiredAddons[] = {"arcore_common"};
         author = "";
         authors[] = {"Kingsley"};
         VERSION_CONFIG;

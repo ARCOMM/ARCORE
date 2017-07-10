@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"ace_common"};
+        requiredAddons[] = {"ace_common", "mars_attributes", "mars_clientmenu"};
         author = "";
         authors[] = {"ACE Team", "Kingsley"};
         authorUrl = "http://arcomm.co";

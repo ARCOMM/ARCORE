@@ -12,6 +12,8 @@
 #define QQADDON QUOTE(QADDON)
 
 #define MFUNC(ARG0,ARG1) TRIPLES(mars,DOUBLES(ARG0,fnc),ARG1)
+#define QMFUNC(ARG0) QUOTE(MFUNC(ARG0))
 #define AFUNC(ARG0) MFUNC(attributes,ARG0)
+#define QAFUNC(ARG0) QUOTE(AFUNC(ARG0))
 
 #define SANDBOX_MODE EGVAR(sandbox,enabled)

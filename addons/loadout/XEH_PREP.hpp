@@ -1,1 +1,2 @@
 PREP(assignLoadout);
+PREP(handleAttributeLoadout);
