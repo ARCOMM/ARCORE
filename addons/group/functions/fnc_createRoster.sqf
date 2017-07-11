@@ -9,7 +9,7 @@
  * None
  *
  * Example:
- * [west] call arcore_roster_fnc_createRoster;
+ * [west] call arcore_group_fnc_createRoster;
  *
  * Public: No
  */
@@ -71,7 +71,7 @@ _elements sort true;
     _x params ["_order", "_name", "_groups"];
 
     _sorted = _groups apply {[
-        [_x getVariable [QEGVAR(group,text), groupId _x]] call _elementNumber,
+        [_x getVariable [QGVAR(text), groupId _x]] call _elementNumber,
         rankId leader _x,
         _x
     ]};
@@ -89,8 +89,8 @@ _elements sort true;
     {
         _x params ["_elNumber", "_rankID", "_group"];
 
-        private _callsign = _group getVariable [QEGVAR(group,text), groupId _group];
-        private _color = _group getVariable [QEGVAR(group,color), format ["Color%1", side _group]];
+        private _callsign = _group getVariable [QGVAR(text), groupId _group];
+        private _color = _group getVariable [QGVAR(color), format ["Color%1", side _group]];
         private _colorHex = [_color] call CFUNC(markerColorToHex);
 
         _output pushBack format [

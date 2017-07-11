@@ -64,7 +64,7 @@ _this spawn {
     // Create the briefings and roster
     [side player] call EFUNC(briefing,createBriefing);
     [] call EFUNC(briefing,createFrameworkBriefing);
-    [side player] call EFUNC(roster,createRoster);
+    [side player] call EFUNC(group,createRoster);
 
     // Delete the real unit
     deleteVehicle _unit;

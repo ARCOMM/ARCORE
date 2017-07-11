@@ -46,7 +46,7 @@ if (_isAdmin) then {
 <font size='14'><execute expression=""[] remoteExecCall ['" + QFUNC(endBriefingStage) + "', 2]"">Stop</execute></font><br/>\
 <br/><br/>\
 <font size='15' face='PuristaBold'>Loadout</font><br/>\
-<font size='14'><execute expression=""['arcore_loadout', 'Loadout', [75, 50]] call " + QAFUNC(openAttributes) + """>Open Loadout Dialog</execute></font>\
+<font size='14'><execute expression=""openMap false; ['arcore_loadout', 'Loadout', [75, 50]] call " + QAFUNC(openAttributes) + """>Open Loadout Dialog</execute></font>\
         "
     ]];
 };

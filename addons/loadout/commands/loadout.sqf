@@ -26,13 +26,13 @@ private _unit = [_type] call CFUNC(getPlayerByName);
 if (count _parts == 1 && {isNull _unit}) then {
     // Give loadout to local player
     [ace_player, _type] call FUNC(assignLoadout);
-    format ["%1 received loadout '%2' from chat", name ace_player, _type] remoteExecCall [QFUNC(systemChatAdmin), 0];
+    format ["%1 received loadout '%2' from chat", name ace_player, _type] remoteExecCall [QCFUNC(systemChatAdmin), 0];
 } else {
     if (count _parts == 1 && {!isNull _unit}) then {
         // Get loadout from given player
         private _loadout = getUnitLoadout _unit;
         ace_player setUnitLoadout _loadout;
-        format ["%1 copied loadout from %2", name ace_player, name _unit] remoteExecCall [QFUNC(systemChatAdmin), 0];
+        format ["%1 copied loadout from %2", name ace_player, name _unit] remoteExecCall [QCFUNC(systemChatAdmin), 0];
     } else {
         if (count _parts == 2 && {!isNull _unit}) then {
             // Give loadout from _unit to _recipient
@@ -40,7 +40,7 @@ if (count _parts == 1 && {isNull _unit}) then {
             if (isNull _recipient) exitWith {};
             private _loadout = getUnitLoadout _unit;
             _recipient setUnitLoadout _loadout;
-            format ["%1 copied loadout from %2 (via %3)", name _recipient, name _unit, name ace_player] remoteExecCall [QFUNC(systemChatAdmin), 0];
+            format ["%1 copied loadout from %2 (via %3)", name _recipient, name _unit, name ace_player] remoteExecCall [QCFUNC(systemChatAdmin), 0];
         };
     };
 };
