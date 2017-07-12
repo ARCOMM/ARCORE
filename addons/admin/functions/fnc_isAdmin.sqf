@@ -37,7 +37,7 @@ private _adminList = [
     "76561198043696611" // Anpan
 ];
 
-if (serverCommandAvailable "#kick" || isServer) exitWith {true};
+if (serverCommandAvailable "#logout" || isServer) exitWith {true};
 if ((getPlayerUID _unit) in _adminList) exitWith {true};
 
 false

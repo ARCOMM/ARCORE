@@ -21,7 +21,7 @@ params [["_unit", objNull, [objNull]]];
 if (isNull _unit) exitWith {};
 
 private _role = _unit getVariable [QEGVAR(loadout,loadout), "r"];
-private _team = switch (_role) do {
+private _team = switch (toLower _role) do {
     case "co";
     case "dc";
     case "m";

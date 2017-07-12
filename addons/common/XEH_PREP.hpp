@@ -20,3 +20,4 @@ PREP(inBuilding);
 PREP(roundToN);
 PREP(arrayShuffle);
 PREP(configOption);
+PREP(entityDebug);

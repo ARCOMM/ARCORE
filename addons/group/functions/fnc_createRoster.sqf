@@ -40,7 +40,7 @@ private _elements = [];
 private _groups = allGroups select {
     side _x == _side &&
     {count units _x > 0} &&
-    {(_x getVariable [QGVAR(ElementName), ""]) != ""} &&
+    {(_x getVariable [QGVAR(rosterEnabled), false])} &&
     {!(_x getVariable [QEGVAR(spectator,virtual), false])}
 };
 

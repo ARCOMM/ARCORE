@@ -42,7 +42,20 @@ if (_role find ":" != -1) then {
     _content = preprocessFileLineNumbers _script;
 };
 
-_unit call compile format ["this = _this; removeAllWeapons this;removeAllItems this;removeAllAssignedItems this;removeUniform this;removeVest this;removeBackpack this;removeHeadgear this;removeGoggles this; %1", _content];
+private _callable = [
+    "this = _this;",
+    "removeAllWeapons this;",
+    "removeAllItems this;",
+    "removeAllAssignedItems this;",
+    "removeUniform this;",
+    "removeVest this;",
+    "removeBackpack this;",
+    "removeHeadgear this;",
+    "removeGoggles this;",
+    _content
+];
+
+_unit call compile (_callable joinString "");
 
 _unit setVariable [QGVAR(loadout), _role, true];
 _unit setVariable [QGVAR(done), true, true];
