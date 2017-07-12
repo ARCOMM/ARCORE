@@ -4,8 +4,6 @@ if (!hasInterface) exitWith {};
 
 EXIT_IF_NOT_ARCMF;
 
-[group player] call CFUNC(entityDebug);
-
 ["group", "groupname"] call CFUNC(registerChatCommand);
 ["group", "groupcolor"] call CFUNC(registerChatCommand);
 
