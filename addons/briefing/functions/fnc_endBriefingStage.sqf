@@ -26,6 +26,9 @@ if (!isNil QGVAR(briefingStageWatcher)) then {
 
 GVAR(timerEnd) = 5;
 
+GVAR(briefingEnded) = true;
+publicVariable QGVAR(briefingEnded);
+
 [{
     params ["_args", "_handler"];
 

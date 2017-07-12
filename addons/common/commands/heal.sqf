@@ -7,7 +7,7 @@
 
 params [["_name", ""]];
 
-if (isNil "ARC_briefingTimeEnd" || {ARC_briefingTimeEnd}) exitWith {
+if (isNil QEGVAR(briefing,briefingEnded) || {EGVAR(briefing,briefingEnded)}) exitWith {
     systemChat "Cannot use heal when not in briefing stage";
 };
 

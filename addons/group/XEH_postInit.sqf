@@ -22,4 +22,6 @@ if (leader player == player) then {
     _group setGroupIdGlobal [_text, "GroupColor0"];
 };
 
-[side group player] call FUNC(createRoster);
+[{time > 0}, {
+    [side group player] call FUNC(createRoster);
+}] call CBA_fnc_waitUntilAndExecute;

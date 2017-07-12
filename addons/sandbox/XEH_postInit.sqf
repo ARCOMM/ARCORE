@@ -10,4 +10,12 @@ if (hasInterface) then {
             player setPos ([true] call FUNC(getSpawnPos));
         };
     };
+
+    player addEventHandler ["Killed", {
+        GVAR(playerLoadout) = getUnitLoadout (_this select 0);
+    }];
+
+    player addEventHandler ["Respawn", {
+        (_this select 0) setUnitLoadout GVAR(playerLoadout);
+    }];
 };
