@@ -10,7 +10,7 @@ EXIT_IF_NOT_ARCMF;
 private _faction = [playerSide] call CFUNC(getFaction);
 private _groupEnabled = [format ["markers.%1.enableGroupMarkers", _faction], true] call CFUNC(configOption);
 
-if (_groupEnabled) then {
+if (_groupEnabled && {playerSide in [west, east, resistance, civilian]}) then {
     [FUNC(updateGroupMarkers), 1, []] call CBA_fnc_addPerFrameHandler;
 };
 
