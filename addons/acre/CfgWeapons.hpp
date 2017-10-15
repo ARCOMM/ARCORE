@@ -6,7 +6,7 @@ class CfgWeapons {
             class ItemInfo {\
                 mass = 0;\
                 scope = 0;\
-                type = 0;\
+                type = 302;\
             };\
         }
 
