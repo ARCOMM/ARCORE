@@ -1,5 +1,4 @@
 class GVAR(Button) {
-    access = 0;
     borderSize = 0;
     colorBorder[] = PRIMARYCOLOR;
     colorBackgroundActive[] = ARCRED;
@@ -128,7 +127,6 @@ class GVAR(Dialog) {
             y = 0.03 * safezoneH + safezoneY;
             w = 0.15 * safezoneW;
             h = 0.97 * safezoneH;
-            access = 0;
             blinkingPeriod = 0;
             colorArrow[] = {0,0,0,0};
             colorBackground[] = BACKGROUND_COLOR;
