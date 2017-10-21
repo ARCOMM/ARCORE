@@ -17,8 +17,8 @@
 
 #include "\z\arcore\addons\main\script_macros.hpp"
 
-#define ACRE_LOSSMODELSCALE 0
+#define ACRE_LOSSMODELSCALE 0.5
 #define ACRE_FULLDUPLEX true
 #define ACRE_REVEALTOAI true
-#define ACRE_INTERFERENCE false
+#define ACRE_INTERFERENCE true
 #define ACRE_IGNOREANTENNADIRECTION true
