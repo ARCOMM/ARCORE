@@ -21,3 +21,4 @@ PREP(roundToN);
 PREP(arrayShuffle);
 PREP(configOption);
 PREP(entityDebug);
+PREP(getRandomBuildingPos);
