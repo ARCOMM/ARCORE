@@ -16,10 +16,10 @@
 private ["_shouldHide"];
 
 {
-    if ("alice_area_" == [_x, 0, 10] call BIS_fnc_trimString) then
+    if (_x find "ARCORE_ambient_civilians_" == 0) then
     {
         _x setMarkerAlphaLocal 0;
-    }
+    };
 }
 forEach allMapMarkers;
 

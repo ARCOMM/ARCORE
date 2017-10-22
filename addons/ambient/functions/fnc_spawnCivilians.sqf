@@ -25,7 +25,7 @@ _civiliansPlayerMax = getNumber (getMissionConfig "CfgARCMF" >> "Ambient" >> "Ci
 
 _inArea = false;
 {
-    if (_x find "alice_area_" == 0) then
+    if (_x find "ARCORE_ambient_civilians_" == 0) then
     {
         if (_position inArea _x) exitWith
         {

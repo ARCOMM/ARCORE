@@ -23,7 +23,7 @@
 
     _startpoints = [];
     {
-        if (_x find "traffic_start_" == 0) then
+        if (_x find "ARCORE_ambient_traffic_spawn_" == 0) then
         {
             _startpoints pushBack [markerPos _x, markerDir _x];
             deleteMarker _x;
@@ -32,7 +32,7 @@
 
     _waypoints = [];
     {
-        if (_x find "traffic_wp_" == 0) then
+        if (_x find "ARCORE_ambient_traffic_wp_" == 0) then
         {
             _waypoints pushBack [markerPos _x, markerDir _x];
             deleteMarker _x;
