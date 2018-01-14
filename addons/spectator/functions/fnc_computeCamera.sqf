@@ -20,8 +20,8 @@ private _x = GVAR(camMouseCord) select 0;
 private _y = GVAR(camMouseCord) select 1;
 private _leftButton = GVAR(camMouseButton) select 0;
 private _rightButton = GVAR(camMouseButton) select 1;
-GVAR(camMouseDeltaX) = GVAR(camMouseLastX) - (_x);
-GVAR(camMouseDeltaY) = GVAR(camMouseLastY) - (_y);
+GVAR(camMouseDeltaX) = (GVAR(camMouseLastX) - (_x)) * 0.5;
+GVAR(camMouseDeltaY) = (GVAR(camMouseLastY) - (_y)) * 0.5;
 
 if (_rightButton && !_leftButton) then {
     GVAR(camAngleX) = (GVAR(camAngleX) - (GVAR(camMouseDeltaX) * 360));
