@@ -8,6 +8,9 @@ if (isNull _unit || {!local _unit} || {isPlayer _unit}) exitWith {};
 
 [_unit] call FUNC(assignLoadout);
 
+_unit disableAI "AUTOCOMBAT";
+_unit disableAI "SUPPRESSION";
+
 [{
     [{
         params ["_unit"];
