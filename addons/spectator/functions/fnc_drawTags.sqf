@@ -41,6 +41,8 @@ private _units = switch (GVAR(camTagsButton)) do {
 
     _color set [3, (linearConversion [0, 2000, (_camera distance _x), 1, 0, true])];
 
+    private _text = _x getVariable [QGVAR(tagText), (["", name _x] select (isPlayer _x))];
+
     drawIcon3D [
         "\A3\ui_f\data\map\markers\military\dot_CA.paa",
         _color,
@@ -48,7 +50,7 @@ private _units = switch (GVAR(camTagsButton)) do {
         1,
         1,
         0,
-        (["", name _x] select (isPlayer _x)),
+        _text,
         2,
         0.03,
         "PuristaBold",
