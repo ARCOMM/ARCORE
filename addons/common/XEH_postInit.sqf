@@ -55,13 +55,13 @@ if (isServer) then {
 };
 
 if (!isNil "acex_fortify_fnc_registerObjects") then {
-    acex_fortify_mode = true;
+    acex_fortify_fortifyAllowed = true;
 
     [QEGVAR(briefing,started), {
-        acex_fortify_mode = true;
+        acex_fortify_fortifyAllowed = true;
     }] call CBA_fnc_addEventHandler;
 
     [QEGVAR(briefing,ended), {
-        acex_fortify_mode = false;
+        acex_fortify_fortifyAllowed = false;
     }] call CBA_fnc_addEventHandler;
 };
