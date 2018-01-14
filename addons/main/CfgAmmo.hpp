@@ -8,12 +8,12 @@ class CfgAmmo {
 
     class F_40mm_White: FlareBase {
         intensity = 1250000;
-        timeToLive = 40;
-        coefGravity = 0.25;
+        timeToLive = 300;
+        coefGravity = 1;
     };
 
     class rhs_40mm_white: F_40mm_White {
         intensity = 1250000;
-        timeToLive = 40;
+        timeToLive = 300;
     };
 };
