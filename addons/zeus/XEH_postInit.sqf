@@ -7,3 +7,11 @@
 ["ACRE", "Disable Spectator", {
     call EFUNC(acre,disableSpectator);
 }] call Ares_fnc_RegisterCustomModule;
+
+if (isServer) then {
+    GVAR(zeusCenter) = createCenter sideLogic;
+};
+
+if (isNil QGVAR(zeusModule)) then {
+    GVAR(zeusModule) = objNull;
+};
