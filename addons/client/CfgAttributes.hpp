@@ -41,16 +41,16 @@ class Mars_Attributes {
                 };
             };
             class Editor {
-                class Zeus {
-                    displayName = "Zeus";
-                    tooltipText = "Login to Zeus to start editing the current running mission. Only one person can be logged into Zeus.";
+                class Zeus1 {
+                    displayName = "Zeus 1";
+                    tooltipText = "Login to Zeus to start editing the current running mission.";
                     class Label {
                         condition = "(true)";
                         type = "LABEL";
                         width = 0.66;
                         textCode = QUOTE(\
                             if (!isNil QUOTE(QEFUNC(zeus,getCuratorString))) then {\
-                                ([] call EFUNC(zeus,getCuratorString))\
+                                ([1] call EFUNC(zeus,getCuratorString))\
                             } else {\
                                 'Undefined'\
                             };\
@@ -59,7 +59,7 @@ class Mars_Attributes {
                     class Button {
                         condition = QUOTE(\
                             if (!isNil QUOTE(QEFUNC(zeus,isAvailable))) then {\
-                                ([] call EFUNC(zeus,isAvailable))\
+                                ([1] call EFUNC(zeus,isAvailable))\
                             } else {\
                                 false\
                             };\
@@ -68,12 +68,47 @@ class Mars_Attributes {
                         width = 0.33;
                         textCode = QUOTE(\
                             if (!isNil QUOTE(QEFUNC(zeus,getCuratorBtnString))) then {\
-                                ([] call EFUNC(zeus,getCuratorBtnString))\
+                                ([1] call EFUNC(zeus,getCuratorBtnString))\
                             } else {\
                                 'Disabled'\
                             };\
                         );
-                        action = QUOTE([] call EFUNC(zeus,openZeus));
+                        action = QUOTE([1] call EFUNC(zeus,openZeus));
+                    };
+                };
+                class Zeus2 {
+                    displayName = "Zeus 2";
+                    tooltipText = "Login to Zeus to start editing the current running mission.";
+                    class Label {
+                        condition = "(true)";
+                        type = "LABEL";
+                        width = 0.66;
+                        textCode = QUOTE(\
+                            if (!isNil QUOTE(QEFUNC(zeus,getCuratorString))) then {\
+                                ([2] call EFUNC(zeus,getCuratorString))\
+                            } else {\
+                                'Undefined'\
+                            };\
+                        );
+                    };
+                    class Button {
+                        condition = QUOTE(\
+                            if (!isNil QUOTE(QEFUNC(zeus,isAvailable))) then {\
+                                ([2] call EFUNC(zeus,isAvailable))\
+                            } else {\
+                                false\
+                            };\
+                        );
+                        type = "BUTTON";
+                        width = 0.33;
+                        textCode = QUOTE(\
+                            if (!isNil QUOTE(QEFUNC(zeus,getCuratorBtnString))) then {\
+                                ([2] call EFUNC(zeus,getCuratorBtnString))\
+                            } else {\
+                                'Disabled'\
+                            };\
+                        );
+                        action = QUOTE([2] call EFUNC(zeus,openZeus));
                     };
                 };
             };

@@ -16,7 +16,10 @@
 
 #include "script_component.hpp"
 
-private _curator = getAssignedCuratorUnit GVAR(zeusModule);
+params [["_slot", 1, [1]]];
+
+private _module = missionNamespace getVariable [format ["%1%2", QGVAR(zeusModule), _slot], objNull];
+private _curator = getAssignedCuratorUnit _module;
 if (!isNull _curator && _curator != player) exitWith {};
 
 private _giveZeus = isNull getAssignedCuratorLogic player;
@@ -25,7 +28,7 @@ while {dialog} do {
     closeDialog 0;
 };
 
-[player, _giveZeus] remoteExec [QFUNC(setupZeus), 2];
+[player, _giveZeus, _slot] remoteExec [QFUNC(setupZeus), 2];
 
 if (_giveZeus) then {
     hintSilent "Press your Zeus key";
