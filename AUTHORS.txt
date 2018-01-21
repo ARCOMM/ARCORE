@@ -4,3 +4,5 @@
 Kingsley
 
 # CONTRIBUTORS
+Jaegerhaus
+RamenNoodleNinja

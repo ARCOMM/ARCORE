@@ -1,4 +1,4 @@
-class MARS_Attributes {
+class Mars_Attributes {
     class ADDON {
         #include "attributes\reinforcements.hpp"
         #include "attributes\teleport.hpp"
@@ -46,7 +46,7 @@ class MARS_Attributes {
         };
     };
 
-    class MARS_ClientMenu {
+    class GVARMAIN(client) {
         class Interface {
             class Editor {
                 class Admin {
