@@ -9,7 +9,7 @@
  * None
  *
  * Example:
- * [6.25] call mars_clientmenu_fnc_setTerrainDetail;
+ * [6.25] call arcore_client_fnc_setTerrainDetail;
  *
  * Public: No
  */
