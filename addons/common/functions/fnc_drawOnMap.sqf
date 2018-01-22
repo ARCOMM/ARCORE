@@ -26,10 +26,10 @@ private _name = format ["%1_drawOnMap_%2", QUOTE(ADDON), str _pos];
 private _marker = createMarker [_name, _pos];
 
 _marker setMarkerPos _pos;
-_marker setMarkerBrush "Solid";
+_marker setMarkerBrush "SolidFull";
 _marker setMarkerShape "RECTANGLE";
-_marker setMarkerColor "ColorBlack";
-_marker setMarkerAlpha 0.5;
+_marker setMarkerColor "ColorGrey";
+_marker setMarkerAlpha 1;
 _marker setMarkerDir (getDir _object);
 
 _marker setMarkerSize [
