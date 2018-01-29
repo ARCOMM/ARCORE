@@ -10,6 +10,8 @@ if (isNull _unit || {!local _unit} || {isPlayer _unit}) exitWith {};
 
 _unit disableAI "AUTOCOMBAT";
 _unit disableAI "SUPPRESSION";
+_unit setBehaviour "AWARE";
+_unit setSpeedMode "FULL";
 
 [{
     [{
