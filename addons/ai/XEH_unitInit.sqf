@@ -6,16 +6,16 @@ params [["_unit", objNull]];
 
 if (isNull _unit || {!local _unit} || {isPlayer _unit}) exitWith {};
 
-[_unit] call FUNC(assignLoadout);
-
-_unit disableAI "AUTOCOMBAT";
-_unit disableAI "SUPPRESSION";
-_unit setBehaviour "AWARE";
-_unit setSpeedMode "FULL";
-
 [{
     [{
         params ["_unit"];
+
+        [_unit] call FUNC(assignLoadout);
+
+        _unit disableAI "AUTOCOMBAT";
+        _unit disableAI "SUPPRESSION";
+        _unit setBehaviour "AWARE";
+        _unit setSpeedMode "FULL";
 
         if (leader _unit isEqualTo _unit) then {
             private _group = group _unit;

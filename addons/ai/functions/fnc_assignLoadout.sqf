@@ -27,6 +27,9 @@ private _enabled = (missionConfigFile >> "CfgARCMF" >> "AI" >> "Gear" >> _factio
 
 if (isNull _enabled || {getNumber _enabled != 1}) exitWith {};
 
+private _blacklisted = _unit getVariable [QGVAR(blacklistGear), false];
+if (_blacklisted) exitWith {};
+
 private _prioritizeTracerMags = getNumber (missionConfigFile >> "CfgARCMF" >> "AI" >> "Gear" >> _faction >> "prioritizeTracerMags") == 1;
 private _removeMedicalItems = getNumber (missionConfigFile >> "CfgARCMF" >> "AI" >> "Gear" >> _faction >> "removeMedicalItems") == 1;
 private _removeNightVision = getNumber (missionConfigFile >> "CfgARCMF" >> "AI" >> "Gear" >> _faction >> "removeNightVision") == 1;
