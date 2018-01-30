@@ -23,3 +23,4 @@ PREP(configOption);
 PREP(entityDebug);
 PREP(getRandomBuildingPos);
 PREP(drawOnMap);
+PREP(inBuildingStrict);
