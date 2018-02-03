@@ -27,12 +27,16 @@ enableSentences false;
 setCurrentChannel 1;
 
 if (isServer) then {
-    if (getNumber (missionConfigFile >> "CfgARCMF" >> "General" >> "freezeTime") in [1,2]) then {
+    private _freezeTime = getNumber (missionConfigFile >> "CfgARCMF" >> "General" >> "freezeTime");
+
+    if (_freezeTime in [1,2]) then {
         setTimeMultiplier 0.1;
 
-        [QEGVAR(briefing,endedServer), {
-            setTimeMultiplier 1;
-        }] call CBA_fnc_addEventHandler;
+        if (_freezeTime == 2) then {
+            [QEGVAR(briefing,endedServer), {
+                setTimeMultiplier 1;
+            }] call CBA_fnc_addEventHandler;
+        };
     };
 
     if (!isNil "acex_fortify_fnc_registerObjects") then {
