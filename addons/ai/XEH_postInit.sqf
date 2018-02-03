@@ -1,49 +1,27 @@
 #include "script_component.hpp"
 
-if (isServer || !hasInterface) then {
-    private _stateMachine = [{allUnits select {!isPlayer _x && local _x}}, true] call CBA_statemachine_fnc_create;
+if (!isServer && hasInterface) exitWith {};
 
-    [_stateMachine, {}, {}, {}, "Initial"] call CBA_statemachine_fnc_addState;
-    // [_stateMachine, {}, {}, {}, "Stance"] call CBA_statemachine_fnc_addState;
-    // [_stateMachine, {}, {
-    //     _this enableAI "TARGET";
-    // }, {}, "Moving"] call CBA_statemachine_fnc_addState;
+#ifdef DEBUG_MODE_FULL
+    call FUNC(handleDebugTags);
+#endif
 
-    [_stateMachine, "Initial", "Initial", {!isNull (assignedTarget _this)}, {
-        private _isMoving = _this getVariable [QGVAR(doingMove), false];
-        if (_isMoving) exitWith {};
+GVAR(stateMachine) = [{
+    allUnits select {!isPlayer _x && local _x}
+}, true] call CBA_statemachine_fnc_create;
 
-        private _timestamp = _this getVariable [QGVAR(stanceTimestamp), 0];
-        if ((time - _timestamp) <= selectRandom [10, 15, 20, 25, 30]) exitWith {};
+[GVAR(stateMachine), {}, {}, {}, "Initial"] call CBA_statemachine_fnc_addState;
 
-        if ([_this] call CFUNC(inBuildingStrict)) exitWith {
-            _this setUnitPos "UP";
-            _this setVariable [QGVAR(stanceTimestamp), time];
-        };
+call FUNC(sys_stance);
+call FUNC(sys_movement);
 
-        private _target = assignedTarget _this;
-        private _distanceProb = linearConversion [0, 1000, (_this distance _target), 0, 1, true];
+private _waypointStateMachine = [{
+    allGroups select {({isPlayer _x} count units _x) == 0}
+}, true] call CBA_statemachine_fnc_create;
 
-        if ((_this distance _target) >= 200 && random 1 <= _distanceProb) then {
-            _this setUnitPos "DOWN";
-        } else {
-            _this setUnitPos (selectRandom ["UP", "MIDDLE"]);
-        };
-
-        _this setVariable [QGVAR(stanceTimestamp), time];
-    }, "ShootingStance"] call CBA_statemachine_fnc_addTransition;
-
-    [_stateMachine, "Initial", "Initial", {isNull (assignedTarget _this)}, {
-        _this setUnitPos "UP";
-    }, "IdleStance"] call CBA_statemachine_fnc_addTransition;
-
-    [_stateMachine, "Initial", "Initial", {
-        (count (waypoints group _this) > 1)
-    }, {
-        private _waypoints = waypoints group _this;
-        private _pos = waypointPosition (_waypoints select 1);
-        _this setVariable [QGVAR(doingMove), true];
-        _this setUnitPos "UP";
-        _this doMove _pos;
-    }, "DoMove"] call CBA_statemachine_fnc_addTransition;
-};
+[_waypointStateMachine, "Initial", "Initial", {true}, {
+    {
+        systemChat format ["Waypoint Statement %1", _x];
+        _x setWaypointStatements ["true", format ["deleteWaypoint %1", _x]];
+    } forEach waypoints _this;
+}] call CBA_statemachine_fnc_addTransition;

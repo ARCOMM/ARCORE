@@ -23,7 +23,7 @@ if (_unit isEqualTo objNull) exitWith {};
 private _pos = getPosASL _unit;
 private _intersections = lineIntersectsSurfaces [
     _pos vectorAdd [0, 0, 1],
-    _pos vectorAdd [0, 0, -200],
+    _pos vectorAdd [0, 0, -20],
     _unit
 ];
 

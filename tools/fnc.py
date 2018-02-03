@@ -109,7 +109,7 @@ def createFunction(addon, name, contents=''):
     file.close()
 
     appendPrep(addon, name)
-    openFile(function)
+    # openFile(function)
 
 def deleteFunction(addon, name):
     function = getFunctionPath(addon, name)
