@@ -50,3 +50,4 @@
 [GVAR(stateMachine), "Initial", "IdleStance", {isNull (assignedTarget _this)}] call CBA_statemachine_fnc_addTransition;
 [GVAR(stateMachine), "Initial", "CombatStance", {!isNull (assignedTarget _this)}] call CBA_statemachine_fnc_addTransition;
 [GVAR(stateMachine), "IdleStance", "CombatStance", {!isNull (assignedTarget _this)}] call CBA_statemachine_fnc_addTransition;
+[GVAR(stateMachine), "CombatStance", "IdleStance", {isNull (assignedTarget _this)}] call CBA_statemachine_fnc_addTransition;
