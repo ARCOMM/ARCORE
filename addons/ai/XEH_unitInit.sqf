@@ -1,7 +1,5 @@
 #include "script_component.hpp"
 
-EXIT_IF_NOT_ARCMF;
-
 params [["_unit", objNull]];
 
 if (isNull _unit || {!local _unit} || {isPlayer _unit}) exitWith {};
@@ -12,11 +10,7 @@ if (isNull _unit || {!local _unit} || {isPlayer _unit}) exitWith {};
 
         [_unit] call FUNC(assignLoadout);
 
-        _unit allowDamage false;
         _unit setUnitPos "UP";
-        _unit disableAI "FSM";
-        // _unit disableAI "TARGET";
-        // _unit disableAI "AUTOTARGET";
         _unit disableAI "AUTOCOMBAT";
         _unit disableAI "SUPPRESSION";
         _unit setBehaviour "AWARE";
