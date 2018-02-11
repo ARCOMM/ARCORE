@@ -130,6 +130,10 @@ switch (_fillingType) do {
                 _building deleteAt 0;
                 _buildingsIndexes deleteAt 0;
                 _buildingsIndexes pushbackUnique _building;
+
+                [_unit, {
+                    _this disableAI "PATH";
+                }] call FUNC(pushLocalCommand);
             };
         };
     };
@@ -160,6 +164,10 @@ switch (_fillingType) do {
                 _unit setUnitPos (selectRandom ["MIDDLE","UP"]);
                 _unitsArray deleteAt (_unitsArray find _unit);
                 _buildingsIndexes set [0,  _building - [_pos]];
+
+                [_unit, {
+                    _this disableAI "PATH";
+                }] call FUNC(pushLocalCommand);
             };
         };
     };
@@ -190,6 +198,10 @@ switch (_fillingType) do {
                 _unit setUnitPos (selectRandom ["MIDDLE","UP"]);
                 _unitsArray deleteAt (_unitsArray find _unit);
                 _buildingsIndexes set [(_buildingsIndexes find _building),  _building - [_pos]];
+
+                [_unit, {
+                    _this disableAI "PATH";
+                }] call FUNC(pushLocalCommand);
             };
         };
     };

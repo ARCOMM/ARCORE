@@ -2,7 +2,11 @@
 
 params [["_unit", objNull]];
 
-if (isNull _unit || {!local _unit} || {isPlayer _unit}) exitWith {};
+if (isNull _unit || {isPlayer _unit}) exitWith {};
+
+_unit addEventHandler ["Local", FUNC(handleLocality)];
+
+if (!local _unit) exitWith {};
 
 [{
     [{
@@ -10,8 +14,6 @@ if (isNull _unit || {!local _unit} || {isPlayer _unit}) exitWith {};
 
         [_unit] call FUNC(assignLoadout);
 
-        _unit setUnitPos "UP";
-        _unit disableAI "AUTOCOMBAT";
         _unit disableAI "SUPPRESSION";
         _unit setBehaviour "AWARE";
         _unit setCombatMode "RED";
