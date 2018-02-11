@@ -43,6 +43,8 @@ if (_slot == 1) then {
 
             _unit assignCurator GVAR(zeusModule1);
             publicVariable QGVAR(zeusModule1);
+
+            [QGVAR(moduleSetup), [GVAR(zeusModule1)]] call CBA_fnc_globalEvent;
         };
     } else {
         if (!isNull GVAR(zeusModule1)) then {
@@ -65,6 +67,8 @@ if (_slot == 1) then {
 
             _unit assignCurator GVAR(zeusModule2);
             publicVariable QGVAR(zeusModule2);
+
+            [QGVAR(moduleSetup), [GVAR(zeusModule2)]] call CBA_fnc_globalEvent;
         };
     } else {
         if (!isNull GVAR(zeusModule2)) then {

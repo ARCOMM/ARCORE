@@ -12,4 +12,12 @@ if (isServer || !hasInterface) then {
     [GVAR(stateMachine), {}, {}, {}, "Initial"] call CBA_statemachine_fnc_addState;
 
     call FUNC(sys_stance);
+
+    [QEGVAR(zeus,moduleSetup), {
+        params ["_module"];
+
+        _module addEventHandler ["CuratorWaypointPlaced", {
+            params ["_curator", "_group", "_waypoint"];
+        }];
+    }] call CBA_fnc_addEventHandler;
 };
