@@ -19,6 +19,12 @@
 [GVAR(stateMachine), {
     DEBUG_TAG("Combat stance");
 
+    // Don't overide explicitly set stance
+    private _hasStance = _this getVariable [QGVAR(hasStance), false];
+    if (!_hasStance && toLower (unitPos _this) != "auto") exitWith {
+        DEBUG_TAG("Skip stance");
+    };
+
     private _isMoving = _this getVariable [QGVAR(doingMove), false];
     if (_isMoving) exitWith {};
 
@@ -39,12 +45,20 @@
         _this setUnitPos (selectRandom ["UP", "MIDDLE"]);
     };
 
+    _this setVariable [QGVAR(hasStance), true];
     _this setVariable [QGVAR(stanceTimestamp), time];
 }, {}, {}, "CombatStance"] call CBA_statemachine_fnc_addState;
 
 [GVAR(stateMachine), {
+    // Don't overide explicitly set stance
+    private _hasStance = _this getVariable [QGVAR(hasStance), false];
+    if (!_hasStance && toLower (unitPos _this) != "auto") exitWith {
+        DEBUG_TAG("Skip stance");
+    };
+
     DEBUG_TAG("Idle stance");
     _this setUnitPos "UP";
+    _this setVariable [QGVAR(hasStance), true];
 }, {}, {}, "IdleStance"] call CBA_statemachine_fnc_addState;
 
 [GVAR(stateMachine), "Initial", "IdleStance", {isNull (assignedTarget _this)}] call CBA_statemachine_fnc_addTransition;

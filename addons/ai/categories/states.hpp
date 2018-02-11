@@ -8,7 +8,7 @@ class GVAR(States) {
             tooltip = "Disables the unit's path; stopping them from moving, but allowing them to aim.";
             property = QGVAR(StateDisablePath);
             control = "Checkbox";
-            expression = EDEN_CHECKBOX_IF(_this disableAI 'PATH');
+            expression = QUOTE(if (!_value) exitWith {}; [ARR_2({(_this select 0) disableAI 'PATH'; [ARR_2((_this select 0), {_this disableAI 'PATH'})] call FUNC(pushLocalCommand);}, [ARR_2(_this, _value)])] call CBA_fnc_execNextFrame);
             defaultValue = 0;
         };
 
