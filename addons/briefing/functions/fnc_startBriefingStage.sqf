@@ -40,7 +40,7 @@ GVAR(briefingTimerPFH) = [{
         if (_timer > 0) then {
             format ["Weapons are cold, briefing stage will end in %1 minute%2", _timer, ["","s"] select (_timer > 1)] remoteExecCall ["hintSilent", 0];
         } else {
-            "Weapons are cold, waiting for admin to trigger start" remoteExecCall ["hintSilent", 0];
+            "Weapons are cold, waiting for admin to trigger end of briefing stage" remoteExecCall ["hintSilent", 0];
         };
     };
 

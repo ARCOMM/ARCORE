@@ -4,6 +4,8 @@ ADDON = false;
 
 #include "XEH_PREP.hpp"
 
+GVAR(commandReferenceControl) = false;
+
 ADDON = true;
 
 EXIT_IF_NOT_ARCMF;

@@ -24,3 +24,5 @@ PREP(entityDebug);
 PREP(getRandomBuildingPos);
 PREP(drawOnMap);
 PREP(inBuildingStrict);
+PREP(chatCommandReference);
+PREP(getChatCommandReferenceText);

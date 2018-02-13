@@ -69,3 +69,5 @@ if (!isNil "acex_fortify_fnc_registerObjects") then {
         acex_fortify_fortifyAllowed = false;
     }] call CBA_fnc_addEventHandler;
 };
+
+call FUNC(chatCommandReference);
