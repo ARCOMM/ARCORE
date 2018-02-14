@@ -26,6 +26,7 @@ private _unit = [_type] call CFUNC(getPlayerByName);
 if (count _parts == 1 && {isNull _unit}) then {
     // Give loadout to local player
     [ace_player, _type] call FUNC(assignLoadout);
+    call EFUNC(acre,clientInit);
     format ["%1 received loadout '%2' from chat", name ace_player, _type] remoteExecCall [QCFUNC(systemChatAdmin), 0];
 } else {
     if (count _parts == 1 && {!isNull _unit}) then {
