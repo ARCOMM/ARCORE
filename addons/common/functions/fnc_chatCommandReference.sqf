@@ -16,8 +16,6 @@
 
 #include "script_component.hpp"
 
-#define COMMAND_REF_IDC 456987123
-
 ctrlDelete (findDisplay 46 displayCtrl COMMAND_REF_IDC);
 
 ["KeyDown", {
@@ -27,15 +25,10 @@ ctrlDelete (findDisplay 46 displayCtrl COMMAND_REF_IDC);
         if (GVAR(commandReferenceControl)) exitWith {};
 
         private _control = _display ctrlCreate ["RscStructuredText", COMMAND_REF_IDC];
-        _control ctrlSetPosition [safeZoneX + (safeZoneW * 0.8), safeZoneY, (safeZoneW * 0.2), safeZoneH];
+        _control ctrlSetPosition [safeZoneX + (safeZoneW * 0.79), safeZoneY + (safeZoneH * 0.01), (safeZoneW * 0.2), safeZoneH * 0.98];
         _control ctrlSetStructuredText (call FUNC(getChatCommandReferenceText));
-        _control ctrlSetBackgroundColor [0,0,0,0.1];
+        _control ctrlSetBackgroundColor [0,0,0,0.15];
         _control ctrlCommit 0;
         GVAR(commandReferenceControl) = true;
-    };
-
-    if (_code in [28, 156]) exitWith {
-        ctrlDelete (_display displayCtrl COMMAND_REF_IDC);
-        GVAR(commandReferenceControl) = false;
     };
 }] call CBA_fnc_addDisplayHandler;

@@ -2,6 +2,7 @@
 
 {_x call CFUNC(registerChatCommand)} forEach [
     ["common", "rp"],
+    ["common", "tp"],
     ["common", "heal"],
     ["common", "whisper"],
     ["common", "end", "admin"]
@@ -70,4 +71,11 @@ if (!isNil "acex_fortify_fnc_registerObjects") then {
     }] call CBA_fnc_addEventHandler;
 };
 
-call FUNC(chatCommandReference);
+if (isMultiplayer) then {
+    call FUNC(chatCommandReference);
+
+    ["cba_events_chatMessageSent", {
+        ctrlDelete ((findDisplay 46) displayCtrl COMMAND_REF_IDC);
+        GVAR(commandReferenceControl) = false;
+    }] call CBA_fnc_addEventHandler;
+};

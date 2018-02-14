@@ -26,3 +26,4 @@ PREP(drawOnMap);
 PREP(inBuildingStrict);
 PREP(chatCommandReference);
 PREP(getChatCommandReferenceText);
+PREP(getGroupByName);

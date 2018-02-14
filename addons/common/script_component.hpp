@@ -1,8 +1,8 @@
 #define COMPONENT common
 #include "\z\arcore\addons\main\script_mod.hpp"
 
-// #define DEBUG_MODE_FULL
-// #define DISABLE_COMPILE_CACHE
+#define DEBUG_MODE_FULL
+#define DISABLE_COMPILE_CACHE
 // #define CBA_DEBUG_SYNCHRONOUS
 // #define ENABLE_PERFORMANCE_COUNTERS
 
@@ -15,3 +15,5 @@
 #endif
 
 #include "\z\arcore\addons\main\script_macros.hpp"
+
+#define COMMAND_REF_IDC 456987123
