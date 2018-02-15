@@ -25,8 +25,7 @@
         DEBUG_TAG("Skip stance");
     };
 
-    private _isMoving = _this getVariable [QGVAR(doingMove), false];
-    if (_isMoving) exitWith {};
+    if (speed _this > 0) exitWith {};
 
     private _timestamp = _this getVariable [QGVAR(stanceTimestamp), 0];
     if ((time - _timestamp) <= selectRandom [10, 15, 20, 25, 30]) exitWith {};

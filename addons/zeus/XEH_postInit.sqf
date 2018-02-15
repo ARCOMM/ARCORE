@@ -19,3 +19,13 @@ if (isNil QGVAR(zeusModule1)) then {
 if (isNil QGVAR(zeusModule2)) then {
     GVAR(zeusModule2) = objNull;
 };
+
+["Achilles_onLoadCuratorInterface", {
+    private _module = getAssignedCuratorLogic player;
+    private _emitted = _module getVariable [QGVAR(setupEmitted), false];
+
+    if (!_emitted) then {
+        [QGVAR(moduleSetup), [_module]] call CBA_fnc_localEvent;
+        _module setVariable [QGVAR(setupEmitted), true, true];
+    };
+}] call CBA_fnc_addEventHandler;

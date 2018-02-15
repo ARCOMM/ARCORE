@@ -6,3 +6,4 @@ PREP(handleDebugTags);
 PREP(sys_stance);
 PREP(handleLocality);
 PREP(pushLocalCommand);
+PREP(handleWaypointPlaced);

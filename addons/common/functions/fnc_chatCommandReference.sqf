@@ -27,7 +27,7 @@ ctrlDelete (findDisplay 46 displayCtrl COMMAND_REF_IDC);
         private _control = _display ctrlCreate ["RscStructuredText", COMMAND_REF_IDC];
         _control ctrlSetPosition [safeZoneX + (safeZoneW * 0.79), safeZoneY + (safeZoneH * 0.01), (safeZoneW * 0.2), safeZoneH * 0.98];
         _control ctrlSetStructuredText (call FUNC(getChatCommandReferenceText));
-        _control ctrlSetBackgroundColor [0,0,0,0.15];
+        _control ctrlSetBackgroundColor [0,0,0,0.5];
         _control ctrlCommit 0;
         GVAR(commandReferenceControl) = true;
     };

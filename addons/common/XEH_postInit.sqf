@@ -1,5 +1,10 @@
 #include "script_component.hpp"
 
+[QGVAR(execute), {
+    params ["_code", "_args"];
+    _args call _code;
+}] call CBA_fnc_addEventHandler;
+
 {_x call CFUNC(registerChatCommand)} forEach [
     ["common", "rp"],
     ["common", "tp"],
