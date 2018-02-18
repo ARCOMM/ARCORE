@@ -16,10 +16,20 @@
 
 #include "script_component.hpp"
 
-params [["_name", "", [""]]];
+params [
+    ["_name", "", [""]],
+    ["_side", sideUnknown, [sideUnknown]]
+];
 
 if (_name isEqualTo "") exitWith {grpNull};
 
 ((allGroups select {
-    toLower (groupId _x) == toLower _name
+    private _id = _x getVariable [QEGVAR(group,text), groupId _x];
+    private _matches = toLower _id == toLower _name;
+
+    if !(_side isEqualTo sideUnknown) then {
+        (_matches && side _x == _side)
+    } else {
+        (_matches)
+    };
 }) param [0, grpNull]);

@@ -10,7 +10,7 @@ params ["_name"];
 private _unit = [_name] call FUNC(getPlayerByName);
 
 if (isNull _unit) then {
-    _unit = leader ([_name] call FUNC(getGroupByName));
+    _unit = leader ([_name, side ace_player] call FUNC(getGroupByName));
 };
 
 if (!isNull _unit) then {
