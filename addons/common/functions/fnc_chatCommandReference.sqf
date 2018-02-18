@@ -30,5 +30,10 @@ ctrlDelete (findDisplay 46 displayCtrl COMMAND_REF_IDC);
         _control ctrlSetBackgroundColor [0,0,0,0.5];
         _control ctrlCommit 0;
         GVAR(commandReferenceControl) = true;
+
+        [{isNull findDisplay 24}, {
+            ctrlDelete ((findDisplay 46) displayCtrl COMMAND_REF_IDC);
+            GVAR(commandReferenceControl) = false;
+        }] call CBA_fnc_waitUntilAndExecute;
     };
 }] call CBA_fnc_addDisplayHandler;
