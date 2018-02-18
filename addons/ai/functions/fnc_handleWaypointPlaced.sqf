@@ -20,6 +20,9 @@
 
 params ["_curator", "_group", "_waypoint"];
 
+// Don't run on vehicle waypoints
+if (({vehicle _x != _x} count units _group) > 0) exitWith {};
+
 private _waypointArray = waypoints _group select _waypoint;
 private _destination = waypointPosition _waypointArray;
 
