@@ -23,3 +23,16 @@ if (ace_player != leader _group) exitWith {
 
 _group setVariable [QGVAR(color), format ["Color%1", _color], true];
 _group setVariable [QGVAR(enabled), true, true];
+_group setVariable [QEGVAR(spectator,virtual), false, true];
+
+private _sideName = switch (side ace_player) do {
+    case west: {QGVAR(ShowBLUFOR)};
+    case east: {QGVAR(ShowOPFOR)};
+    case resistance: {QGVAR(ShowINDFOR)};
+    case civilian: {QGVAR(ShowCIV)};
+    default {""};
+};
+
+if (_sideName != "") then {
+    _group setVariable [_sideName, true, true];
+};
