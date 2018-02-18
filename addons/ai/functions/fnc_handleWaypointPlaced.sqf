@@ -31,7 +31,7 @@ private _destination = waypointPosition _waypointArray;
 
         _unit setUnitPos "UP";
         _unit setSpeedMode "FULL";
-        _unit setBehaviour "CARELESS";
+        _unit setBehaviour "AWARE";
         _unit setCombatMode "BLUE";
 
         _unit disableAI "TARGET";
