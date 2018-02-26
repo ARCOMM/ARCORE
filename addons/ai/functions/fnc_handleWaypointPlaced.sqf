@@ -18,6 +18,8 @@
 
 #include "script_component.hpp"
 
+if (!CBA_events_shift) exitWith {};
+
 params ["_curator", "_group", "_waypoint"];
 
 // Don't run on vehicle waypoints
