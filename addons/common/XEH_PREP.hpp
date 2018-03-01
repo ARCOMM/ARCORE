@@ -27,3 +27,4 @@ PREP(inBuildingStrict);
 PREP(chatCommandReference);
 PREP(getChatCommandReferenceText);
 PREP(getGroupByName);
+PREP(handleGamma);

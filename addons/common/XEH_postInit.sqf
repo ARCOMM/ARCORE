@@ -13,6 +13,10 @@
     ["common", "end", "admin"]
 ];
 
+if (isMultiplayer) then {
+    call FUNC(handleGamma);
+};
+
 EXIT_IF_NOT_ARCMF;
 
 enableSaving [false, false];
