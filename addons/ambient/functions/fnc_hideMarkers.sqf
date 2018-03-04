@@ -13,8 +13,6 @@
  * Public: Yes
  */
 
-private ["_shouldHide"];
-
 {
     if (_x find "ARCORE_ambient_civilians_" == 0) then
     {

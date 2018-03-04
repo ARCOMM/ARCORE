@@ -14,7 +14,7 @@
  */
 
 params ["_unit", "_vehicle", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
-private ["_isScared", "_building"];
+private ["_isScared", "_building", "_waypoint"];
 
 _isScared = _unit getVariable ["ARCORE_ambient_isScared", false];
 if (_isScared) exitWith {};
@@ -26,9 +26,9 @@ while {count waypoints group _unit > 0} do
     deleteWaypoint ((waypoints group _unit) select 0);
 };
 
-_waypoint1 = (_building select 0) buildingPos (random (_building select 1));
+_waypoint = (_building select 0) buildingPos (random (_building select 1));
 [
-    _unit, _waypoint1, 0,
+    _unit, _waypoint, 0,
     "MOVE", "CARELESS", "BLUE", "FULL", "COLUMN",
     "this playMove 'AmovPercMstpSnonWnonDnon_Scared'; this disableAI 'ANIM';"
 ]

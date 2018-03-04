@@ -43,7 +43,6 @@ if (_inArea &&
     count _civilians < _civiliansPlayerMax) then
 {
     _civilian = [_position, _spawnDistance] call FUNC(initCivilian);
-    _civilian = [_position, _spawnDistance] call FUNC(initCivilian);
 };
 
 false

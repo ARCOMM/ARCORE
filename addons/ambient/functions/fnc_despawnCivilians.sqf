@@ -13,7 +13,7 @@
  * Public: Yes
  */
 
-private ["_civilians", "_civilian", "_despawnDistance"];
+private ["_civilians", "_civilian", "_despawnDistance", "_keep", "_group"];
 
 _civilians = player getVariable ["ARCORE_ambient_civilians", []];
 _despawnDistance = getNumber (getMissionConfig "CfgARCMF" >> "Ambient" >> "Civilians" >> "despawnDistance");

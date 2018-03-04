@@ -44,8 +44,7 @@
         _startPos = _startpoint select 0;
         _startDir = _startpoint select 1;
         _waypoint = selectRandom _waypoints;
-        _wpPos = _waypoint select 0;
-        _wpDir = _waypoint select 1;
+        _waypointPos = _waypoint select 0;
 
         _vehicleType = selectRandom _vehicleTypes;
         _vehicleInfo = [_startPos, _startDir, _vehicleType, civilian] call BIS_fnc_spawnVehicle;
@@ -53,9 +52,9 @@
         _crew = _vehicleInfo select 1;
         _group = _vehicleInfo select 2;
 
-        _wp = _group addWaypoint [_wpPos, 0];
-        _wp setWaypointType "MOVE";
-        _wp setWaypointStatements [
+        _waypoint = _group addWaypoint [_waypointPos, 0];
+        _waypoint setWaypointType "MOVE";
+        _waypoint setWaypointStatements [
             "true",
             "{ deleteVehicle vehicle _x; deleteVehicle _x; } forEach thisList;"
         ];
