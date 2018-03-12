@@ -30,10 +30,11 @@ private _curators = [];
 if (_unit in _curators) exitWith {true};
 
 private _adminList = [
-    "76561198026152758", // Kracken
     "76561198115517788", // Kingsley
     "76561197985318459", // WirelessPillow
-    "76561198068210077" // Clark
+    "76561198026152758", // Kracken
+    "76561198073677701", // Krijger
+    "76561198070330109" // HazardousChurch
 ];
 
 if (serverCommandAvailable "#logout" || isServer) exitWith {true};
