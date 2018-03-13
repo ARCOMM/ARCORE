@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"arcore_main"};
+        requiredAddons[] = {"arcore_main", "us_military_units"};
         author = "";
         authors[] = {"Kingsley"};
         VERSION_CONFIG;
@@ -14,3 +14,4 @@ class CfgPatches {
 
 #include "CfgEventHandlers.hpp"
 #include "CfgEden.hpp"
+#include "CfgVehicles.hpp"
