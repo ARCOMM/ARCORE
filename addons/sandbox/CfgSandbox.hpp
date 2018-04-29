@@ -135,9 +135,9 @@ class CfgSandbox {
         carrierPosition[] = {395.919,754.795,0};
         camouflage = "default";
     };
-    class vt5 {
-        startingPosition[] = {238.369,457.755,0};
-        carrierPosition[] = {5900.29,-43.1283,0};
+    class Ruha {
+        startingPosition[] = {6683.25,1167.18,0};
+        carrierPosition[] = {0,0,0};
         camouflage = "woodland";
     };
     class WL_WRoute191 {
