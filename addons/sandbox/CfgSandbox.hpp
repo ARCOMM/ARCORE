@@ -65,8 +65,13 @@ class CfgSandbox {
         camouflage = "woodland";
     };
     class MCN_Aliabad {
-        startingPosition[] = {1764.62,5779.12,0};
-        carrierPosition[] = {21.2341,5400.47,0};
+        startingPosition[] = {5369.19,3531.82,0};
+        carrierPosition[] = {332.251,4977.06,0};
+        camouflage = "mtp";
+    };
+    class Tembelan {
+        startingPosition[] = {4794.57,1102.34,0};
+        carrierPosition[] = {900.801,863.741,0};
         camouflage = "mtp";
     };
     class namalsk {
