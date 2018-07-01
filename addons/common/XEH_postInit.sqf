@@ -17,6 +17,24 @@ if (isMultiplayer) then {
     call FUNC(handleGamma);
 };
 
+["ace_unconscious", {
+	params [
+        ["_unit", objNull],
+        ["_state", false]
+    ];
+
+	if (_state && {vehicle _unit == _unit
+        && {!([_unit] call ace_medical_fnc_isBeingCarried)
+        && {!([_unit] call ace_medical_fnc_isBeingDragged)}}}
+    ) then {
+		_unit setUnconscious true;
+	};
+
+	if (!_state) then {
+		_unit setUnconscious false;
+	};
+}] call CBA_fnc_addEventHandler;
+
 EXIT_IF_NOT_ARCMF;
 
 enableSaving [false, false];
