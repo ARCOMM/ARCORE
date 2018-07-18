@@ -9,6 +9,16 @@ class CfgSandbox {
         carrierPosition[] = {15748.2,6912.05,0};
         camouflage = "mtp";
     };
+    class hellanmaa {
+        startingPosition[] = {6956.73,7994.14,0};
+        carrierPosition[] = {6956.73,7994.14,0};
+        camouflage = "woodland";
+    };
+    class pulau {
+        startingPosition[] = {1123.12,2598.83,0};
+        carrierPosition[] = {1123.12,2598.83,0};
+        camouflage = "woodland";
+    };
     class Bootcamp_ACR {
         startingPosition[] = {1686.72,102.895,0};
         camouflage = "woodland";
