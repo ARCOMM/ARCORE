@@ -25,6 +25,8 @@ if !(leader ace_player isEqualTo ace_player) exitWith {
     systemChat "You need to be the group leader to stage";
 };
 
+GVAR(safeZoneMarkers) = [];
+
 {
     _x params ["_logic", "_width", "_height"];
 
@@ -34,7 +36,7 @@ if !(leader ace_player isEqualTo ace_player) exitWith {
     _marker setMarkerColorLocal "ColorBlue";
     _marker setMarkerSizeLocal [_width, _height];
 
-    _logic setVariable [QGVAR(safeZoneMarker), _marker, true];
+    GVAR(safeZoneMarkers) pushBack _marker;
 } forEach GVAR(adversarialSafeZones);
 
 openMap true;
@@ -59,10 +61,8 @@ GVAR(stageMapClickHandler) = addMissionEventHandler ["MapSingleClick", {
     } forEach units group ace_player;
 
     {
-        _x params ["_logic"];
-        private _marker = _logic getVariable [QGVAR(safeZoneMarker), ""];
-        deleteMarkerLocal _marker;
-    } forEach GVAR(adversarialSafeZones);
+        deleteMarker _x;
+    } forEach GVAR(safeZoneMarkers);
 
     openMap false;
 
