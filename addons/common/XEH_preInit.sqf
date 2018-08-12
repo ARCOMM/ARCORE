@@ -5,6 +5,7 @@ ADDON = false;
 #include "XEH_PREP.hpp"
 
 GVAR(commandReferenceControl) = false;
+GVAR(adversarialSafeZones) = [];
 
 ADDON = true;
 

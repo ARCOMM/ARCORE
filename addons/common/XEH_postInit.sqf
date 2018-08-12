@@ -10,7 +10,8 @@
     ["common", "tp"],
     ["common", "heal"],
     ["common", "whisper"],
-    ["common", "end", "admin"]
+    ["common", "end"],
+    ["common", "stage"]
 ];
 
 if (isMultiplayer) then {

@@ -28,3 +28,4 @@ PREP(chatCommandReference);
 PREP(getChatCommandReferenceText);
 PREP(getGroupByName);
 PREP(handleGamma);
+PREP(adversarialSafeZoneModule);

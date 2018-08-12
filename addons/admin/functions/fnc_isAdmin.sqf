@@ -16,24 +16,28 @@
 
 #include "script_component.hpp"
 
-params [["_unit", objNull, [objNull]]];
+params [
+    ["_unit", objNull, [objNull]],
+    ["_strict", false, [false]]
+];
 
 if (isNull _unit) exitWith {false};
 
-private _curators = [];
+if (!_strict) then {
+    private _curators = [];
 
-{
-    _curators pushBackUnique (getAssignedCuratorUnit _x);
-    false
-} count allCurators;
+    {
+        _curators pushBackUnique (getAssignedCuratorUnit _x);
+        false
+    } count allCurators;
 
-if (_unit in _curators) exitWith {true};
+    if (_unit in _curators) exitWith {true};
+};
 
 private _adminList = [
+    "76561198073677701", // Krijger
     "76561198115517788", // Kingsley
     "76561197985318459", // WirelessPillow
-    "76561198026152758", // Kracken
-    "76561198073677701", // Krijger
     "76561198070330109" // HazardousChurch
 ];
 

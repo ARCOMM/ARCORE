@@ -10,7 +10,7 @@
  * Void
  *
  * Example:
- * ["message"] call arcore_main_fnc_systemChatAdmin;
+ * ["message", true] call arcore_main_fnc_systemChatAdmin;
  *
  * Public: Yes
  */
@@ -23,6 +23,8 @@ if (_broadcast) exitWith {
     [_message] remoteExecCall [QFUNC(systemChatAdmin), 0];
 };
 
-if (serverCommandAvailable "#logout" || {isServer}) exitWith {
+private _isAdmin = [ace_player, true] call EFUNC(admin,isAdmin);
+
+if (_isAdmin) exitWith {
     systemChat _message;
 };

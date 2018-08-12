@@ -34,3 +34,4 @@ switch (_type) do {
 };
 
 [ace_player, _classname] call FUNC(addRadio);
+[format ["%1 retrieved %2 radio from chat", name ace_player, _type], true] call CFUNC(systemChatAdmin);
