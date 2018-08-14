@@ -18,6 +18,8 @@
 
 params ["_state"];
 
+EXIT_IF_NOT_ADMIN;
+
 _state = toLower _state;
 
 if (_state == "on") exitWith {

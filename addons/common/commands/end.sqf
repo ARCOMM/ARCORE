@@ -18,6 +18,8 @@
 
 params [["_type", ""]];
 
+EXIT_IF_NOT_ADMIN;
+
 private _map = [
     ["b", QEGVAR(main,blufor)],
     ["o", QEGVAR(main,opfor)],
