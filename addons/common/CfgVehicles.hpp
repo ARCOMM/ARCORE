@@ -24,7 +24,7 @@ class CfgVehicles {
         canSetArea = 1;
         function = QFUNC(adversarialSafeZoneModule);
         class AttributeValues {
-            size3[] = {500,500,-1};
+            size3[] = {750, 750, -1};
             IsRectangle = 0;
         };
     };

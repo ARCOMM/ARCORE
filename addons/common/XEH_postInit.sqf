@@ -11,7 +11,8 @@
     ["common", "heal"],
     ["common", "whisper"],
     ["common", "end"],
-    ["common", "stage"]
+    ["common", "stage"],
+    ["common", "ad"]
 ];
 
 if (isMultiplayer) then {
@@ -106,4 +107,11 @@ if (isMultiplayer) then {
         ctrlDelete ((findDisplay 46) displayCtrl COMMAND_REF_IDC);
         GVAR(commandReferenceControl) = false;
     }] call CBA_fnc_addEventHandler;
+};
+
+if !(GVAR(adversarialDefendersPos) isEqualTo []) then {
+    if (side player == GVAR(adversarialDefenders)) then {
+        player setPos GVAR(adversarialDefendersPos);
+        [player] call FUNC(resetPosition);
+    };
 };
