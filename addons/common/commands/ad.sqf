@@ -63,7 +63,7 @@ GVAR(defendersMapClickHandler) = addMissionEventHandler ["MapSingleClick", {
     {
         vehicle _x setPos ([_pos, 25] call CBA_fnc_randPos);
         [vehicle _x] call FUNC(resetPosition); // Make sure they're not inside an object
-    } forEach ((call CBA_fnc_players) select {side _x == GVAR(adversarialDefenders)});
+    } forEach (allUnits select {side _x == GVAR(adversarialDefenders)});
 
     private _center = "Land_HelipadEmpty_F" createVehicle _pos;
     GVAR(adversarialSafeZones) = [[_center, GVAR(adversarialAttackersDiameter) / 2, GVAR(adversarialAttackersDiameter) / 2, 0, false, 0]];
@@ -85,7 +85,7 @@ GVAR(defendersMapClickHandler) = addMissionEventHandler ["MapSingleClick", {
 
     openMap false;
 
+    [true] call FUNC(randomizeEnvironment);
+
     removeMissionEventHandler ["MapSingleClick", GVAR(defendersMapClickHandler)];
 }];
-
-[true] call FUNC(randomizeEnvironment);
