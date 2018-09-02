@@ -6,6 +6,9 @@ ADDON = false;
 
 GVAR(commandReferenceControl) = false;
 GVAR(adversarialSafeZones) = [];
+GVAR(adversarialAttackers) = sideUnknown;
+GVAR(adversarialDefenders) = sideUnknown;
+GVAR(adversarialDefendersPos) = [];
 
 ADDON = true;
 
