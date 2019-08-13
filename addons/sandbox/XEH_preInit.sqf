@@ -27,10 +27,10 @@ if (isServer) then {
             if (isClass (configfile >> "CfgPatches" >> "ace_arsenal")) then
             {
                 [GVAR(arsenal), true, true] call ace_arsenal_fnc_initBox;
-            } else
-            {
-                ["AmmoboxInit", [GVAR(arsenal), true]] spawn BIS_fnc_arsenal;
             };
+            
+            ["AmmoboxInit", [GVAR(arsenal), true]] spawn BIS_fnc_arsenal;
+            
             GVAR(arsenal) allowDamage false;
         };
     };
