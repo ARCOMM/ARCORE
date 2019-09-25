@@ -30,6 +30,11 @@ if (isNull _enabled || {getNumber _enabled != 1}) exitWith {};
 private _blacklisted = _unit getVariable [QGVAR(blacklistGear), false];
 if (_blacklisted) exitWith {};
 
+// Community Factions Project compatibility
+// Disable Randomisation
+if (isClass (configfile >> "CfgPatches" >> "cba_main")) then {_unit setVariable ["CFP_DisableRandom", true, true]};
+//
+
 private _prioritizeTracerMags = getNumber (missionConfigFile >> "CfgARCMF" >> "AI" >> "Gear" >> _faction >> "prioritizeTracerMags") == 1;
 private _removeMedicalItems = getNumber (missionConfigFile >> "CfgARCMF" >> "AI" >> "Gear" >> _faction >> "removeMedicalItems") == 1;
 private _removeNightVision = getNumber (missionConfigFile >> "CfgARCMF" >> "AI" >> "Gear" >> _faction >> "removeNightVision") == 1;
