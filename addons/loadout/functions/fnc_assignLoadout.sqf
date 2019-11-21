@@ -31,7 +31,7 @@ if (!local _unit) exitWith {
 
 // Community Factions Project compatibility
 // Disable Randomisation
-if (isClass (configfile >> "CfgPatches" >> "cba_main")) then {_unit setVariable ["CFP_DisableRandom", true, true]};
+if (isClass (configfile >> "CfgPatches" >> "cfp_main")) then {_unit setVariable ["CFP_DisableRandom", true, true]};
 //
 
 private _content = "";
