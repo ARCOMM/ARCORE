@@ -20,21 +20,6 @@ private _isAdmin = [player] call EFUNC(admin,isAdmin);
 
 player createDiarySubject ["ARCMF", "ARCMF"];
 
-//--- Missing Radios
-player createDiaryRecord ["ARCMF", [
-    "Radios",
-    "\
-<br/>
-<font size='15' face='PuristaBold'>MISSING RADIOS</font><br/>\
-<font size='14'>Do not abuse these functions. They are only to be used if you are missing a radio and it's not by mission design.</font><br/>\
-<font size='14'><execute expression=""[player, 'ACRE_PRC343'] call " + QEFUNC(acre,addRadio) + """>Add AN/PRC-343</execute></font><br/>\
-<font size='14'><execute expression=""[player, 'ACRE_PRC148'] call " + QEFUNC(acre,addRadio) + """>Add AN/PRC-148</execute></font><br/>\
-<font size='14'><execute expression=""[player, 'ACRE_PRC152'] call " + QEFUNC(acre,addRadio) + """>Add AN/PRC-152</execute></font><br/>\
-<font size='14'><execute expression=""[player, 'ACRE_PRC117F'] call " + QEFUNC(acre,addRadio) + """>Add AN/PRC-117F</execute></font><br/>\
-<font size='14'><execute expression=""[player, 'ACRE_PRC77'] call " + QEFUNC(acre,addRadio) + """>Add AN/PRC-77</execute></font><br/>\
-    "
-]];
-
 //--- Admin
 if (_isAdmin) then {
     player createDiaryRecord ["ARCMF", [

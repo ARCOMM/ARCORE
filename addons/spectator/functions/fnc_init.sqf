@@ -69,11 +69,6 @@ _this spawn {
     // Delete the real unit
     deleteVehicle _unit;
 
-    // Remove ACRE radios
-    if (!isNil "acre_api_fnc_getCurrentRadioList") then {
-        {player removeItem _x} forEach ([] call acre_api_fnc_getCurrentRadioList);
-    };
-
     // Make sure there is a unit to target
     if (isNull _oldUnit) then {
         if !(playableUnits isEqualTo []) then {
@@ -89,11 +84,6 @@ _this spawn {
     // Post Processing
     if (!isNil "BIS_fnc_feedback_allowPP") then {
         BIS_fnc_feedback_allowPP = false;
-    };
-
-    // ACRE
-    if (!isNil "acre_api_fnc_setSpectator") then {
-        [true] call acre_api_fnc_setSpectator;
     };
 
     // Chat

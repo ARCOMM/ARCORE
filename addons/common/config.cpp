@@ -5,7 +5,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"arcore_main", "us_military_units"};
+        requiredAddons[] = {"arcore_main"};
         author = "";
         authors[] = {"Kingsley"};
         VERSION_CONFIG;

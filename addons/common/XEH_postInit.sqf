@@ -42,14 +42,14 @@ EXIT_IF_NOT_ARCMF;
 enableSaving [false, false];
 enableSentences false;
 
-// Disable random button on Virtual Arsenal to prevent breaking ACRE
+// Disable random button on Virtual Arsenal to prevent breaking Radio plugins
 [missionNamespace, "arsenalOpened", {
     disableSerialization;
     private _display = _this select 0;
     private _button = (_display displayCtrl 44150);
     _button ctrlRemoveAllEventHandlers "buttonclick";
     _button ctrlEnable false;
-    _button ctrlSetTooltip "Random is disabled because it breaks ACRE";
+    _button ctrlSetTooltip "Random is disabled because it breaks Radio plugins";
     _display displayAddEventHandler ["KeyDown", "if ((_this select 1) in [19,29]) then {true}"];
 }] call BIS_fnc_addScriptedEventHandler;
 

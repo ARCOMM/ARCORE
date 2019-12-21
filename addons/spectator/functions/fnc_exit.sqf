@@ -45,11 +45,6 @@ if (!isNil "BIS_fnc_feedback_allowPP") then {
     BIS_fnc_feedback_allowPP = true;
 };
 
-// ACRE
-if (!isNil "acre_api_fnc_setSpectator") then {
-    [false] call acre_api_fnc_setSpectator;
-};
-
 player allowDamage true;
 player enableSimulation true;
 
