@@ -29,6 +29,11 @@ if (!local _unit) exitWith {
     _this remoteExecCall [QFUNC(assignLoadout), _unit];
 };
 
+// Community Factions Project compatibility
+// Disable Randomisation
+if (isClass (configfile >> "CfgPatches" >> "cfp_main")) then {_unit setVariable ["CFP_DisableRandom", true, true]};
+//
+
 private _content = "";
 
 if (_role find ":" != -1) then {
