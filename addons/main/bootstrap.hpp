@@ -48,3 +48,12 @@ class Params {
         #endif
     };
 };
+
+#ifndef CUSTOMCFGDEBRIEFINGSECTIONS
+class CfgDebriefingSections {
+    class acex_killTracker {
+        title = "Acex Killed Events";
+        variable = "acex_killTracker_outputText";
+    };
+};
+#endif
