@@ -16,12 +16,6 @@ if (!local _unit) exitWith {};
 
         [_unit] call FUNC(assignLoadout);
 
-        _unit disableAI "SUPPRESSION";
-        _unit setBehaviour "AWARE";
-        _unit setCombatMode "RED";
-        _unit setSpeedMode "FULL";
-        _unit allowFleeing 0;
-
         if (leader _unit isEqualTo _unit) then {
             private _group = group _unit;
             private _garrisonEnabled = _group getVariable [QGVAR(GarrisonEnabled), false];
@@ -30,10 +24,6 @@ if (!local _unit) exitWith {};
                 private _radius = _group getVariable [QGVAR(GarrisonRadius), 250];
                 [_unit, nil, _unit, _radius] call FUNC(garrison);
             };
-        };
-
-        if (vehicle _unit != _unit) then {
-            vehicle _unit allowCrewInImmobile true;
         };
 
         _unit addEventHandler ["Reloaded", {
