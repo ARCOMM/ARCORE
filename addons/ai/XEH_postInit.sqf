@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+EXIT_IF_NOT_ARCMF;
+
 if (isServer || !hasInterface) then {
     #ifdef DEBUG_MODE_FULL
         call FUNC(handleDebugTags);
