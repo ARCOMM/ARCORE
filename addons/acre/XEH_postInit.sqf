@@ -5,17 +5,14 @@ EXIT_IF_NOT_ARCMF;
 // Exit if ACRE isn't loaded
 if (isNil "acre_api_fnc_setFullDuplex") exitWith {};
 
+
+//What does the below line even do?
 ["acre", "radio"] call CFUNC(registerChatCommand);
 
 [{isDedicated || !isNull player}, {
-    [ACRE_LOSSMODELSCALE] call acre_api_fnc_setLossModelScale;
-    [ACRE_FULLDUPLEX] call acre_api_fnc_setFullDuplex;
-    [ACRE_REVEALTOAI] call acre_api_fnc_setRevealToAI;
-    [ACRE_INTERFERENCE] call acre_api_fnc_setInterference;
-    [ACRE_IGNOREANTENNADIRECTION] call acre_api_fnc_ignoreAntennaDirection;
-
-    call FUNC(setupPresets);
-
+    
+	call FUNC(setupPresets);
+	
     if (hasInterface) then {
         {_x call acre_api_fnc_babelAddLanguageType} forEach [
             ["english", "English"],
