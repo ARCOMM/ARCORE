@@ -34,6 +34,8 @@ if (!_strict) then {
     if (_unit in _curators) exitWith {true};
 };
 
+//Feel like we should either add more names or get rid of this
+//Did anyone apart from Kingsley even know this existed?
 private _adminList = [
     "76561198073677701", // Krijger
     "76561198115517788", // Kingsley

@@ -4,6 +4,7 @@ class Mars_Attributes {
             displayName = "ARCOMM";
             actionConfirm = "";
             actionCancel = "";
+			//Seems like ACE can handle this now
             class Terrain {
                 class Detail {
                     displayName = "Terrain Detail";
@@ -20,6 +21,7 @@ class Mars_Attributes {
                         );
                     };
                 };
+				//With ACE, do we still need this?
                 class Distance {
                     displayName = "View Distance";
                     tooltipText = "View distance affects how far you can see. Note that this does not affect object view distance (you can change that in your Arma 3 settings).";
