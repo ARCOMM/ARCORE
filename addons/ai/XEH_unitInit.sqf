@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+EXIT_IF_NOT_ARCMF;
+
 params [["_unit", objNull]];
 
 if (isNull _unit || {isPlayer _unit}) exitWith {};

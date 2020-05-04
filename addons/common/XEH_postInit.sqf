@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+EXIT_IF_NOT_ARCMF;
+
 [QGVAR(execute), {
     params ["_code", "_args"];
     _args call _code;

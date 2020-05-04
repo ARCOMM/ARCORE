@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+EXIT_IF_NOT_ARCMF;
+
 ADDON = false;
 
 #include "XEH_PREP.hpp"
@@ -11,8 +13,6 @@ GVAR(adversarialDefenders) = sideUnknown;
 GVAR(adversarialDefendersPos) = [];
 
 ADDON = true;
-
-EXIT_IF_NOT_ARCMF;
 
 if (isServer) then {
     if (SANDBOX_MODE) then {

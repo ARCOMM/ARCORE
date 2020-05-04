@@ -1,5 +1,7 @@
 #include "script_component.hpp"
 
+EXIT_IF_NOT_ARCMF;
+
 ["ACRE", "Enable Spectator", {
     call EFUNC(acre,enableSpectator);
 }] call Ares_fnc_RegisterCustomModule;

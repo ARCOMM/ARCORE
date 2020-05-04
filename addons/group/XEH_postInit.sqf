@@ -1,8 +1,8 @@
 #include "script_component.hpp"
 
-if (!hasInterface) exitWith {};
-
 EXIT_IF_NOT_ARCMF;
+
+if (!hasInterface) exitWith {};
 
 ["group", "groupname"] call CFUNC(registerChatCommand);
 ["group", "groupcolor"] call CFUNC(registerChatCommand);
