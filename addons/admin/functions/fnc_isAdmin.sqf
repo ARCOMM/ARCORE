@@ -36,11 +36,11 @@ if (!_strict) then {
 
 //Feel like we should either add more names or get rid of this
 //Did anyone apart from Kingsley even know this existed?
+//Admins know of this will add toast and draco
 private _adminList = [
-    "76561198073677701", // Krijger
-    "76561198115517788", // Kingsley
     "76561197985318459", // WirelessPillow
     "76561198070330109" // HazardousChurch
+    "76561198008417884" //ToastSmack
 ];
 
 if (serverCommandAvailable "#logout" || isServer) exitWith {true};

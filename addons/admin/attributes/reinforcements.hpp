@@ -1,4 +1,4 @@
-//Does this even work?
+//confirmed working breaks loadouts
 class Reinforcements {
     displayName = "Reinforcements";
     actionConfirm = QUOTE(_this call FUNC(reinforcement));
