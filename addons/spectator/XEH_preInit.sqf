@@ -1,12 +1,12 @@
 #include "script_component.hpp"
 
+EXIT_IF_NOT_ARCMF;
+
 ADDON = false;
 
 #include "XEH_PREP.hpp"
 
 ADDON = true;
-
-EXIT_IF_NOT_ARCMF;
 
 GVAR(isSpectating) = false;
 
