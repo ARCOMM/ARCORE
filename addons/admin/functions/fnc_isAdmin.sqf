@@ -39,7 +39,7 @@ if (!_strict) then {
 //Admins know of this will add toast and draco
 private _adminList = [
     "76561197985318459", // WirelessPillow
-    "76561198070330109" // HazardousChurch
+    "76561198070330109", // HazardousChurch
     "76561198008417884" //ToastSmack
 ];
 

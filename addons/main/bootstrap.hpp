@@ -3,7 +3,7 @@
 class Header {
     gameType = Coop;
     minPlayers = 1;
-    maxPlayers = 229;
+    maxPlayers = 999;
     ARCMF = 1;
     #ifdef SANDBOX
         sandbox = 1;
