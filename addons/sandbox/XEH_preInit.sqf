@@ -26,7 +26,13 @@ if (isServer) then {
             ["Initialize", [true]] call BIS_fnc_dynamicGroups;
 
             GVAR(arsenal) = createVehicle ["Land_PaperBox_open_full_F", _spawnPos, [], 0, "CAN_COLLIDE"];
+            if (isClass (configfile >> "CfgPatches" >> "ace_arsenal")) then
+            {
+                [GVAR(arsenal), true, true] call ace_arsenal_fnc_initBox;
+            };
+            
             ["AmmoboxInit", [GVAR(arsenal), true]] spawn BIS_fnc_arsenal;
+            
             GVAR(arsenal) allowDamage false;
         };
     };
