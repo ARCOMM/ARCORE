@@ -1,0 +1,1 @@
+These files are intended to show the correct file structure, but are otherwise only useful as a template.
