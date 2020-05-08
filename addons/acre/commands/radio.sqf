@@ -28,7 +28,7 @@ switch (_type) do {
     case ("77"): {_classname = "ACRE_PRC77"};
     default {
         if (true) exitWith {
-            systemChat "Only available radios are 343, 148 and 152.";
+            systemChat "Available radios are 343, 148, 152, 117F and 77.";
         };
     };
 };

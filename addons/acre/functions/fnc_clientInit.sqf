@@ -34,10 +34,10 @@ if (false/* TODO disableFrequencySplit */) then {
     _presetName = "default";
 };
 
-["ACRE_PRC343", _presetName] call acre_api_fnc_setPreset;
-["ACRE_PRC148", _presetName] call acre_api_fnc_setPreset;
-["ACRE_PRC152", _presetName] call acre_api_fnc_setPreset;
-["ACRE_PRC117F", _presetName] call acre_api_fnc_setPreset;
+[RADIO_343, _presetName] call acre_api_fnc_setPreset;
+[RADIO_148, _presetName] call acre_api_fnc_setPreset;
+[RADIO_152, _presetName] call acre_api_fnc_setPreset;
+[RADIO_117F, _presetName] call acre_api_fnc_setPreset;
 ["ItemRadio", _presetName] call acre_api_fnc_setPreset;
 
 if (!alive _unit) exitWith {
@@ -117,42 +117,42 @@ switch (side _unit) do {
         default {[]};
     };
 
-    #define ADD_RADIO(ARR, RADIO)\
-        ARR = ARR apply {toLower _x};\
-        if (count (ARR select {_x == _typeOfUnit}) == 1 || (count ARR == 1 && toLower (ARR select 0) == "all")) then {\
-            _unit addItem RADIO;\
-        } else {\
-            for "_i" from 1 to count (ARR select {_x == _typeOfUnit}) do {\
-                _unit addItem RADIO;\
-            };\
-        }
+    #define ADD_RADIO(ARCROLE, RADIO)
+        ARCROLE = ARCROLE apply {toLower _x};
+        if ((count (ARCROLE select {_x == _typeOfUnit}) == 1) || (count ARCROLE == 1 && toLower (ARCROLE select 0) == "all")) then {
+            _unit addItem RADIO;
+        } else {
+            for "_i" from 1 to count (ARCROLE select {_x == _typeOfUnit}) do {
+                _unit addItem RADIO;
+            };
+        };
 
     if (_typeOfUnit != "NIL") then {
-        if (_typeOfUnit in _AN_PRC_343 || (count _AN_PRC_343 == 1 && toLower (_AN_PRC_343 select 0) == "all")) then {
+        if ((_typeOfUnit in _AN_PRC_343) || (count _AN_PRC_343 == 1 && toLower (_AN_PRC_343 select 0) == "all")) then {
             if (_unit canAdd RADIO_343) then {
                 ADD_RADIO(_AN_PRC_343, RADIO_343);
             };
         };
 
-        if (_typeOfUnit in _AN_PRC_148 || (count _AN_PRC_148 == 1 && toLower (_AN_PRC_148 select 0) == "all")) then {
+        if ((_typeOfUnit in _AN_PRC_148) || (count _AN_PRC_148 == 1 && toLower (_AN_PRC_148 select 0) == "all")) then {
             if (_unit canAdd RADIO_148) then {
                 ADD_RADIO(_AN_PRC_148, RADIO_148);
             };
         };
 
-        if (_typeOfUnit in _AN_PRC_152 || (count _AN_PRC_152 == 1 && toLower (_AN_PRC_152 select 0) == "all")) then {
+        if ((_typeOfUnit in _AN_PRC_152) || (count _AN_PRC_152 == 1 && toLower (_AN_PRC_152 select 0) == "all")) then {
             if (_unit canAdd RADIO_152) then {
                 ADD_RADIO(_AN_PRC_152, RADIO_152);
             };
         };
 
-        if (_typeOfUnit in _AN_PRC_117F || (count _AN_PRC_117F == 1 && toLower (_AN_PRC_117F select 0) == "all")) then {
+        if ((_typeOfUnit in _AN_PRC_117F) || (count _AN_PRC_117F == 1 && toLower (_AN_PRC_117F select 0) == "all")) then {
             if (_unit canAdd RADIO_117F) then {
                 ADD_RADIO(_AN_PRC_117F, RADIO_117F);
             };
         };
 
-        if (_typeOfUnit in _AN_PRC_77 || (count _AN_PRC_77 == 1 && toLower (_AN_PRC_77 select 0) == "all")) then {
+        if ((_typeOfUnit in _AN_PRC_77) || (count _AN_PRC_77 == 1 && toLower (_AN_PRC_77 select 0) == "all")) then {
             if (_unit canAdd RADIO_77) then {
                 ADD_RADIO(_AN_PRC_77, RADIO_77);
             };

@@ -3,7 +3,7 @@
 #define CFUNC(ARG0) EFUNC(common,ARG0)
 #define QCFUNC(ARG0) QUOTE(CFUNC(ARG0))
 
-#define EXIT_IF_NOT_ARCMF if !(call CFUNC(addonActive)) exitWith {}
+#define EXIT_IF_NOT_ARCMF if (!(call CFUNC(addonActive))) exitWith {}
 #define EXIT_IF_NOT_ADMIN if (!([ARR_2(player, true)] call EFUNC(admin,isAdmin))) exitWith {}
 
 #define EDEN_TITLE(STR) QUOTE(STR)
