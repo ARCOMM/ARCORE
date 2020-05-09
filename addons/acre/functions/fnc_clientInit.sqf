@@ -117,14 +117,12 @@ switch (side _unit) do {
         default {[]};
     };
 
-    #define ADD_RADIO(ARCROLE, RADIO)
-        ARCROLE = ARCROLE apply {toLower _x};
-        if ((count (ARCROLE select {_x == _typeOfUnit}) == 1) || (count ARCROLE == 1 && toLower (ARCROLE select 0) == "all")) then {
-            _unit addItem RADIO;
-        } else {
-            for "_i" from 1 to count (ARCROLE select {_x == _typeOfUnit}) do {
-                _unit addItem RADIO;
-            };
+    #define ADD_RADIO(ARCROLE, RADIO)\
+        ARCROLE = ARCROLE apply {toLower _x};\
+			if ((count (ARCROLE select {_x == _typeOfUnit}) == 1) || (count ARCROLE == 1 && toLower (ARCROLE select 0) == "all"))\
+			then {_unit addItem RADIO;}\
+			else {for "_i" from 1 to count (ARCROLE select {_x == _typeOfUnit})\ 
+				do {_unit addItem RADIO;};\
         };
 
     if (_typeOfUnit != "NIL") then {
